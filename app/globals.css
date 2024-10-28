@@ -30,6 +30,7 @@
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
   }
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -56,6 +57,7 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
+
   .bonfire {
     --background: 0 0% 95%;
     --foreground: 0 0% 3.9%;
@@ -67,13 +69,15 @@
     --primary-foreground: 0 0% 100%;
     --secondary: 32 86% 53%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 49 84% 53%;
+    --tertiary: 220 70% 50%;
+    --tertiary-foreground: 0 0% 100%;
+    --muted: 0 0% 55%;
     --muted-foreground: 0 0% 3.9%;
     --accent: 40 85% 53%;
     --accent-foreground: 0 0% 3.9%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 32 86% 53%;
+    --border: 0 0% 63.9%;
     --input: 0 0% 89.8%;
     --ring: 0 0% 3.9%;
     --chart-1: 12 76% 61%;
@@ -89,9 +93,11 @@
   * {
     @apply border-border;
   }
+
   html {
     @apply h-full;
   }
+
   body {
     @apply bg-background text-foreground antialiased;
   }

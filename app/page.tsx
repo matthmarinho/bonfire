@@ -5,7 +5,7 @@ import Grimoire from "./_components/grimoire"
 
 export default function Home() {
   return (
-    <div className="flex h-screen flex-col items-center justify-between">
+    <div className="flex min-h-screen flex-col items-center justify-between">
       <div className="flex h-12 flex-row items-center justify-center gap-1">
         <Link href="/">
           <FlameKindlingIcon color="#f07421" size={22} />

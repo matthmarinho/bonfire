@@ -1,87 +1,167 @@
 "use client"
 
-import { DicesIcon, PinIcon } from "lucide-react"
+import { useEffect, useState } from "react"
 import Image from "next/image"
-import { Button } from "./ui/button"
-import XIcon from "../_constants/xIcon"
-import HeartIcon from "../_constants/heartIcon"
-import { AnimatePresence, motion, transform, useAnimation } from "framer-motion"
+import {
+  CalendarIcon,
+  ClockIcon,
+  TimerIcon,
+  UsersRoundIcon,
+} from "lucide-react"
+import {
+  Carousel,
+  CarouselApi,
+  CarouselContent,
+  CarouselItem,
+} from "./ui/carousel"
+import { Card, CardContent } from "./ui/card"
+import { Badge } from "./ui/badge"
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
+import Rating from "./rating"
+import dayjs from "dayjs"
+import "dayjs/locale/pt-br"
+import GetGrimoire, { GrimoireCardProps } from "../_services/getGrimoire"
+import Loading from "./loading"
+import Game from "./game"
 
-export const images = [
-  "https://d33wubrfki0l68.cloudfront.net/dd23708ebc4053551bb33e18b7174e73b6e1710b/dea24/static/images/wallpapers/shared-colors@2x.png",
-  "https://d33wubrfki0l68.cloudfront.net/49de349d12db851952c5556f3c637ca772745316/cfc56/static/images/wallpapers/bridge-02@2x.png",
-  "https://d33wubrfki0l68.cloudfront.net/594de66469079c21fc54c14db0591305a1198dd6/3f4b1/static/images/wallpapers/bridge-01@2x.png",
-]
+dayjs.locale("pt-br")
 
 const Grimoire = () => {
-  const rotateValue = transform([-200, 200], [-50, 50])(0)
+  const [api, setApi] = useState<CarouselApi>()
+  const [current, setCurrent] = useState(0)
+  // eslint-disable-next-line no-unused-vars
+  const [, setCount] = useState(0)
+  const [grimoireData, setGrimoireData] = useState<GrimoireCardProps[] | []>([])
+  const [loading, setLoading] = useState(true)
+  const [open, setOpen] = useState(false)
+  const [currentGame, setCurrentGame] = useState<GrimoireCardProps | null>(null)
 
-  const animControls = useAnimation()
+  const handleCardClick = () => {
+    setCurrentGame(grimoireData[current - 1])
+    setOpen(true)
+  }
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true)
+      const data = await GetGrimoire()
+      setGrimoireData(data)
+      setLoading(false)
+    }
+
+    fetchData()
+  }, [])
+
+  useEffect(() => {
+    if (!api) {
+      return
+    }
+
+    setCount(api.scrollSnapList().length)
+    setCurrent(api.selectedScrollSnap() + 1)
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap() + 1)
+    })
+  }, [api])
+
+  if (loading) {
+    return <Loading />
+  }
 
   return (
-    <AnimatePresence initial={false}>
-      <motion.div
-        // className={styles.img}
-        // key={page}
-        // custom={direction}
-        initial="enter"
-        animate={{ rotate: rotateValue }}
-        drag="x"
-        dragConstraints={{ left: -1000, right: 1000 }}
-        dragElastic={1}
-        onDragEnd={(event, info) => {
-          // If the card is dragged only upto 150 on x-axis
-          // bring it back to initial position
-          if (Math.abs(info.point.x) <= 150) {
-            animControls.start({ x: 0 })
-          } else {
-            // If card is dragged beyond 150
-            // make it disappear
-            // making use of ternary operator
-            animControls.start({ x: info.point.x < 0 ? -200 : 200 })
-          }
-        }}
-        className="relative h-[300px] w-full flex-grow"
-      >
-        <Image
-          alt={"image"}
-          src="/girl.jpg"
-          fill
-          className="rounded-xl object-cover px-1"
-        />
-        <div className="absolute inset-x-0 bottom-0 z-50 mx-1 rounded-b-xl bg-gradient-to-t from-black via-black to-black/10">
-          <div className="space-y-2 p-2">
-            <h1 className="text-3xl font-semibold text-white">
-              Sabrina Carpenter
-            </h1>
-            <div>
-              <div className="justify-left flex flex-row items-center gap-1 text-white">
-                <PinIcon size={16} />
-                <p>Recife</p>
-              </div>
-              <div className="justify-left flex flex-row items-center gap-1 text-white">
-                <DicesIcon size={16} />
-                <p>D&D | Cyberpunk</p>
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-row items-center justify-around p-2">
-            <Button
-              size="rounded"
-              className="border-2 border-red-600 bg-transparent fill-red-600 hover:bg-red-600 hover:fill-white"
-            >
-              <XIcon className="h-6 w-6" />
-            </Button>
-            <Button
-              size="rounded"
-              className="border-2 border-green-600 bg-transparent fill-green-600 hover:bg-green-600 hover:fill-white"
-            >
-              <HeartIcon className="h-6 w-6" />
-            </Button>
-          </div>
-        </div>
-      </motion.div>
-    </AnimatePresence>
+    <>
+      <div className="w-full">
+        <Carousel setApi={setApi}>
+          <CarouselContent>
+            {grimoireData.map((card) => (
+              <CarouselItem key={card.id}>
+                <Card className="border-none">
+                  <CardContent
+                    className="relative flex h-[calc(100vh-96px)] w-screen flex-col items-center justify-center p-0"
+                    onClick={handleCardClick}
+                  >
+                    <Image
+                      alt={card.title}
+                      src={card.banner}
+                      fill
+                      className={"rounded-md object-cover"}
+                    />
+                    <div className="absolute inset-x-0 bottom-0 z-50 rounded-b-xl bg-gradient-to-t from-black via-black/90 to-black/10">
+                      <div className="space-y-4 p-4">
+                        {card.currentPlayers === 0 ? (
+                          <Badge className="bg-tertiary">
+                            {card.minPlayers} NEEDED TO START
+                          </Badge>
+                        ) : (
+                          <Badge>
+                            {card.maxPlayers - card.currentPlayers} SEAT LEFT
+                          </Badge>
+                        )}
+                        <div>
+                          <h1 className="text-3xl font-semibold text-primary-foreground">
+                            {card.title}
+                          </h1>
+                          <p className="text-sm text-primary-foreground">
+                            {card.system}
+                          </p>
+                        </div>
+                        <div className="text-sm">
+                          <div className="justify-left flex flex-row items-center gap-1 text-primary-foreground">
+                            <ClockIcon size={16} />
+                            <p>
+                              {card.schedule.frequency} / {card.schedule.day} -{" "}
+                              {card.schedule.time}
+                            </p>
+                          </div>
+                          <div className="justify-left flex flex-row items-center gap-1 text-primary-foreground">
+                            <CalendarIcon size={16} />
+                            <p>
+                              {dayjs(card.nextSession.date).format("DD MMM")} /
+                              Session {card.nextSession.sessionNumber}
+                            </p>
+                          </div>
+                          <div className="justify-left flex flex-row items-center gap-1 text-primary-foreground">
+                            <TimerIcon size={16} />
+                            <p>{card.duration} Hour duration</p>
+                          </div>
+                          <div className="justify-left flex flex-row items-center gap-1 text-primary-foreground">
+                            <UsersRoundIcon size={16} />
+                            <p>
+                              {card.currentPlayers} / {card.maxPlayers} Seats
+                              filled
+                            </p>
+                          </div>
+                        </div>
+                        <div className="flex flex-row justify-between text-sm">
+                          <div className="flex items-center">
+                            <Avatar>
+                              <AvatarImage src="/girl.jpg" alt="@shadcn" />
+                              <AvatarFallback>DM</AvatarFallback>
+                            </Avatar>
+                            X
+                            <p className="font-semibold text-primary-foreground">
+                              {card.dungeonMaster.name}
+                            </p>
+                          </div>
+                          <Rating
+                            score={card.dungeonMaster.rating.score}
+                            totalRatings={
+                              card.dungeonMaster.rating.totalRatings
+                            }
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+      </div>
+      {currentGame && <Game open={open} setOpen={setOpen} game={currentGame} />}
+    </>
   )
 }
 

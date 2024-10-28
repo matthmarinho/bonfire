@@ -1,12 +1,12 @@
 import Link from "next/link"
 import { Button } from "./ui/button"
 import {
-  DicesIcon,
   FlameKindlingIcon,
   MessagesSquareIcon,
   SearchIcon,
   UserIcon,
 } from "lucide-react"
+import D20Icon from "./d20Icon"
 
 const Nav = () => {
   return (
@@ -23,7 +23,7 @@ const Nav = () => {
       </Link>
       <Link href="/">
         <Button size="icon" variant="invisible">
-          <DicesIcon />
+          <D20Icon />
         </Button>
       </Link>
       <Link href="/">
