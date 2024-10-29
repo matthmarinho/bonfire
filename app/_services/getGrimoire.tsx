@@ -17,11 +17,26 @@ const mockGrimoire = [
     },
     duration: "2 hours",
     dungeonMaster: {
-      name: "Matthaeus",
+      id: "dm1",
+      name: "Alice",
       avatarUrl: "/girl.jpg",
       rating: {
-        score: 5,
-        totalRatings: 666,
+        score: 4.8,
+        totalRatings: 150,
+      },
+      sessionsPlayed: 120,
+      yearsExperiencePlayer: 10,
+      yearsExperienceDungeonMaster: 7,
+      platformTime: "2 years",
+      proficiencies: ["Narrativo", "Flexível", "Criativo"],
+      aboutMe:
+        "Eu adoro criar aventuras intensas e desafiadoras, onde os jogadores sempre podem esperar o inesperado.",
+      style:
+        "Narrativo com ênfase em descrições detalhadas e mecânicas ajustadas",
+      systemsPlayed: ["Dungeons & Dragons 5e", "Vampire: The Masquerade"],
+      socialLinks: {
+        twitter: "https://twitter.com/dm_alice",
+        instagram: "https://instagram.com/dm_alice_adventures",
       },
     },
     experience: "Beginner",
@@ -55,11 +70,26 @@ const mockGrimoire = [
     },
     duration: "3 hours",
     dungeonMaster: {
-      name: "Marcus",
-      avatarUrl: "/dm-avatar-1.jpg",
+      id: "dm1",
+      name: "Alice",
+      avatarUrl: "/girl.jpg",
       rating: {
-        score: 2.2,
-        totalRatings: 200,
+        score: 4.8,
+        totalRatings: 150,
+      },
+      sessionsPlayed: 120,
+      yearsExperiencePlayer: 10,
+      yearsExperienceDungeonMaster: 7,
+      platformTime: "2 years",
+      proficiencies: ["Narrativo", "Flexível", "Criativo"],
+      aboutMe:
+        "Eu adoro criar aventuras intensas e desafiadoras, onde os jogadores sempre podem esperar o inesperado.",
+      style:
+        "Narrativo com ênfase em descrições detalhadas e mecânicas ajustadas",
+      systemsPlayed: ["Dungeons & Dragons 5e", "Vampire: The Masquerade"],
+      socialLinks: {
+        twitter: "https://twitter.com/dm_alice",
+        instagram: "https://instagram.com/dm_alice_adventures",
       },
     },
     experience: "Beginner",
@@ -85,11 +115,26 @@ const mockGrimoire = [
     },
     duration: "2 hours",
     dungeonMaster: {
-      name: "Elena",
-      avatarUrl: "/dm-avatar-2.jpg",
+      id: "dm1",
+      name: "Alice",
+      avatarUrl: "/girl.jpg",
       rating: {
-        score: 4.5,
-        totalRatings: 250,
+        score: 4.8,
+        totalRatings: 150,
+      },
+      sessionsPlayed: 120,
+      yearsExperiencePlayer: 10,
+      yearsExperienceDungeonMaster: 7,
+      platformTime: "2 years",
+      proficiencies: ["Narrativo", "Flexível", "Criativo"],
+      aboutMe:
+        "Eu adoro criar aventuras intensas e desafiadoras, onde os jogadores sempre podem esperar o inesperado.",
+      style:
+        "Narrativo com ênfase em descrições detalhadas e mecânicas ajustadas",
+      systemsPlayed: ["Dungeons & Dragons 5e", "Vampire: The Masquerade"],
+      socialLinks: {
+        twitter: "https://twitter.com/dm_alice",
+        instagram: "https://instagram.com/dm_alice_adventures",
       },
     },
     experience: "Beginner",
@@ -116,11 +161,26 @@ const mockGrimoire = [
     },
     duration: "4 hours",
     dungeonMaster: {
-      name: "Tom",
-      avatarUrl: "/dm-avatar-3.jpg",
+      id: "dm1",
+      name: "Alice",
+      avatarUrl: "/girl.jpg",
       rating: {
-        score: 4.0,
-        totalRatings: 175,
+        score: 4.8,
+        totalRatings: 150,
+      },
+      sessionsPlayed: 120,
+      yearsExperiencePlayer: 10,
+      yearsExperienceDungeonMaster: 7,
+      platformTime: "2 years",
+      proficiencies: ["Narrativo", "Flexível", "Criativo"],
+      aboutMe:
+        "Eu adoro criar aventuras intensas e desafiadoras, onde os jogadores sempre podem esperar o inesperado.",
+      style:
+        "Narrativo com ênfase em descrições detalhadas e mecânicas ajustadas",
+      systemsPlayed: ["Dungeons & Dragons 5e", "Vampire: The Masquerade"],
+      socialLinks: {
+        twitter: "https://twitter.com/dm_alice",
+        instagram: "https://instagram.com/dm_alice_adventures",
       },
     },
     experience: "Beginner",
@@ -146,11 +206,26 @@ const mockGrimoire = [
     },
     duration: "3 hours",
     dungeonMaster: {
-      name: "Lily",
-      avatarUrl: "/dm-avatar-4.jpg",
+      id: "dm1",
+      name: "Alice",
+      avatarUrl: "/girl.jpg",
       rating: {
-        score: 3.8,
-        totalRatings: 300,
+        score: 4.8,
+        totalRatings: 150,
+      },
+      sessionsPlayed: 120,
+      yearsExperiencePlayer: 10,
+      yearsExperienceDungeonMaster: 7,
+      platformTime: "2 years",
+      proficiencies: ["Narrativo", "Flexível", "Criativo"],
+      aboutMe:
+        "Eu adoro criar aventuras intensas e desafiadoras, onde os jogadores sempre podem esperar o inesperado.",
+      style:
+        "Narrativo com ênfase em descrições detalhadas e mecânicas ajustadas",
+      systemsPlayed: ["Dungeons & Dragons 5e", "Vampire: The Masquerade"],
+      socialLinks: {
+        twitter: "https://twitter.com/dm_alice",
+        instagram: "https://instagram.com/dm_alice_adventures",
       },
     },
     experience: "Beginner",
@@ -176,11 +251,26 @@ const mockGrimoire = [
     },
     duration: "4 hours",
     dungeonMaster: {
-      name: "Derek",
-      avatarUrl: "/dm-avatar-5.jpg",
+      id: "dm1",
+      name: "Alice",
+      avatarUrl: "/girl.jpg",
       rating: {
-        score: 4.6,
-        totalRatings: 245,
+        score: 4.8,
+        totalRatings: 150,
+      },
+      sessionsPlayed: 120,
+      yearsExperiencePlayer: 10,
+      yearsExperienceDungeonMaster: 7,
+      platformTime: "2 years",
+      proficiencies: ["Narrativo", "Flexível", "Criativo"],
+      aboutMe:
+        "Eu adoro criar aventuras intensas e desafiadoras, onde os jogadores sempre podem esperar o inesperado.",
+      style:
+        "Narrativo com ênfase em descrições detalhadas e mecânicas ajustadas",
+      systemsPlayed: ["Dungeons & Dragons 5e", "Vampire: The Masquerade"],
+      socialLinks: {
+        twitter: "https://twitter.com/dm_alice",
+        instagram: "https://instagram.com/dm_alice_adventures",
       },
     },
     experience: "Beginner",
@@ -206,11 +296,26 @@ const mockGrimoire = [
     },
     duration: "3 hours",
     dungeonMaster: {
-      name: "Nina",
-      avatarUrl: "/dm-avatar-6.jpg",
+      id: "dm1",
+      name: "Alice",
+      avatarUrl: "/girl.jpg",
       rating: {
-        score: 3.9,
-        totalRatings: 160,
+        score: 4.8,
+        totalRatings: 150,
+      },
+      sessionsPlayed: 120,
+      yearsExperiencePlayer: 10,
+      yearsExperienceDungeonMaster: 7,
+      platformTime: "2 years",
+      proficiencies: ["Narrativo", "Flexível", "Criativo"],
+      aboutMe:
+        "Eu adoro criar aventuras intensas e desafiadoras, onde os jogadores sempre podem esperar o inesperado.",
+      style:
+        "Narrativo com ênfase em descrições detalhadas e mecânicas ajustadas",
+      systemsPlayed: ["Dungeons & Dragons 5e", "Vampire: The Masquerade"],
+      socialLinks: {
+        twitter: "https://twitter.com/dm_alice",
+        instagram: "https://instagram.com/dm_alice_adventures",
       },
     },
     experience: "Beginner",
@@ -237,11 +342,26 @@ const mockGrimoire = [
     },
     duration: "2 hours",
     dungeonMaster: {
-      name: "Sarah",
-      avatarUrl: "/dm-avatar-7.jpg",
+      id: "dm1",
+      name: "Alice",
+      avatarUrl: "/girl.jpg",
       rating: {
         score: 4.8,
-        totalRatings: 210,
+        totalRatings: 150,
+      },
+      sessionsPlayed: 120,
+      yearsExperiencePlayer: 10,
+      yearsExperienceDungeonMaster: 7,
+      platformTime: "2 years",
+      proficiencies: ["Narrativo", "Flexível", "Criativo"],
+      aboutMe:
+        "Eu adoro criar aventuras intensas e desafiadoras, onde os jogadores sempre podem esperar o inesperado.",
+      style:
+        "Narrativo com ênfase em descrições detalhadas e mecânicas ajustadas",
+      systemsPlayed: ["Dungeons & Dragons 5e", "Vampire: The Masquerade"],
+      socialLinks: {
+        twitter: "https://twitter.com/dm_alice",
+        instagram: "https://instagram.com/dm_alice_adventures",
       },
     },
     experience: "Beginner",
@@ -267,11 +387,26 @@ const mockGrimoire = [
     },
     duration: "3 hours",
     dungeonMaster: {
-      name: "Eliot",
-      avatarUrl: "/dm-avatar-8.jpg",
+      id: "dm1",
+      name: "Alice",
+      avatarUrl: "/girl.jpg",
       rating: {
-        score: 4.1,
-        totalRatings: 320,
+        score: 4.8,
+        totalRatings: 150,
+      },
+      sessionsPlayed: 120,
+      yearsExperiencePlayer: 10,
+      yearsExperienceDungeonMaster: 7,
+      platformTime: "2 years",
+      proficiencies: ["Narrativo", "Flexível", "Criativo"],
+      aboutMe:
+        "Eu adoro criar aventuras intensas e desafiadoras, onde os jogadores sempre podem esperar o inesperado.",
+      style:
+        "Narrativo com ênfase em descrições detalhadas e mecânicas ajustadas",
+      systemsPlayed: ["Dungeons & Dragons 5e", "Vampire: The Masquerade"],
+      socialLinks: {
+        twitter: "https://twitter.com/dm_alice",
+        instagram: "https://instagram.com/dm_alice_adventures",
       },
     },
     experience: "Beginner",
@@ -297,11 +432,26 @@ const mockGrimoire = [
     },
     duration: "4 hours",
     dungeonMaster: {
-      name: "Lara",
-      avatarUrl: "/dm-avatar-9.jpg",
+      id: "dm1",
+      name: "Alice",
+      avatarUrl: "/girl.jpg",
       rating: {
-        score: 4.4,
-        totalRatings: 180,
+        score: 4.8,
+        totalRatings: 150,
+      },
+      sessionsPlayed: 120,
+      yearsExperiencePlayer: 10,
+      yearsExperienceDungeonMaster: 7,
+      platformTime: "2 years",
+      proficiencies: ["Narrativo", "Flexível", "Criativo"],
+      aboutMe:
+        "Eu adoro criar aventuras intensas e desafiadoras, onde os jogadores sempre podem esperar o inesperado.",
+      style:
+        "Narrativo com ênfase em descrições detalhadas e mecânicas ajustadas",
+      systemsPlayed: ["Dungeons & Dragons 5e", "Vampire: The Masquerade"],
+      socialLinks: {
+        twitter: "https://twitter.com/dm_alice",
+        instagram: "https://instagram.com/dm_alice_adventures",
       },
     },
     experience: "Beginner",
@@ -327,11 +477,26 @@ const mockGrimoire = [
     },
     duration: "3 hours",
     dungeonMaster: {
-      name: "Oscar",
-      avatarUrl: "/dm-avatar-10.jpg",
+      id: "dm1",
+      name: "Alice",
+      avatarUrl: "/girl.jpg",
       rating: {
-        score: 4.0,
-        totalRatings: 205,
+        score: 4.8,
+        totalRatings: 150,
+      },
+      sessionsPlayed: 120,
+      yearsExperiencePlayer: 10,
+      yearsExperienceDungeonMaster: 7,
+      platformTime: "2 years",
+      proficiencies: ["Narrativo", "Flexível", "Criativo"],
+      aboutMe:
+        "Eu adoro criar aventuras intensas e desafiadoras, onde os jogadores sempre podem esperar o inesperado.",
+      style:
+        "Narrativo com ênfase em descrições detalhadas e mecânicas ajustadas",
+      systemsPlayed: ["Dungeons & Dragons 5e", "Vampire: The Masquerade"],
+      socialLinks: {
+        twitter: "https://twitter.com/dm_alice",
+        instagram: "https://instagram.com/dm_alice_adventures",
       },
     },
     experience: "Beginner",
@@ -358,11 +523,26 @@ const mockGrimoire = [
     },
     duration: "2 hours",
     dungeonMaster: {
-      name: "Chris",
-      avatarUrl: "/dm-avatar-11.jpg",
+      id: "dm1",
+      name: "Alice",
+      avatarUrl: "/girl.jpg",
       rating: {
-        score: 3.7,
-        totalRatings: 190,
+        score: 4.8,
+        totalRatings: 150,
+      },
+      sessionsPlayed: 120,
+      yearsExperiencePlayer: 10,
+      yearsExperienceDungeonMaster: 7,
+      platformTime: "2 years",
+      proficiencies: ["Narrativo", "Flexível", "Criativo"],
+      aboutMe:
+        "Eu adoro criar aventuras intensas e desafiadoras, onde os jogadores sempre podem esperar o inesperado.",
+      style:
+        "Narrativo com ênfase em descrições detalhadas e mecânicas ajustadas",
+      systemsPlayed: ["Dungeons & Dragons 5e", "Vampire: The Masquerade"],
+      socialLinks: {
+        twitter: "https://twitter.com/dm_alice",
+        instagram: "https://instagram.com/dm_alice_adventures",
       },
     },
     experience: "Beginner",
@@ -388,11 +568,26 @@ const mockGrimoire = [
     },
     duration: "3 hours",
     dungeonMaster: {
+      id: "dm1",
       name: "Alice",
-      avatarUrl: "/dm-avatar-12.jpg",
+      avatarUrl: "/girl.jpg",
       rating: {
-        score: 4.3,
-        totalRatings: 180,
+        score: 4.8,
+        totalRatings: 150,
+      },
+      sessionsPlayed: 120,
+      yearsExperiencePlayer: 10,
+      yearsExperienceDungeonMaster: 7,
+      platformTime: "2 years",
+      proficiencies: ["Narrativo", "Flexível", "Criativo"],
+      aboutMe:
+        "Eu adoro criar aventuras intensas e desafiadoras, onde os jogadores sempre podem esperar o inesperado.",
+      style:
+        "Narrativo com ênfase em descrições detalhadas e mecânicas ajustadas",
+      systemsPlayed: ["Dungeons & Dragons 5e", "Vampire: The Masquerade"],
+      socialLinks: {
+        twitter: "https://twitter.com/dm_alice",
+        instagram: "https://instagram.com/dm_alice_adventures",
       },
     },
     experience: "Beginner",
@@ -419,11 +614,26 @@ const mockGrimoire = [
     },
     duration: "4 hours",
     dungeonMaster: {
-      name: "Harold",
-      avatarUrl: "/dm-avatar-13.jpg",
+      id: "dm1",
+      name: "Alice",
+      avatarUrl: "/girl.jpg",
       rating: {
-        score: 3.8,
-        totalRatings: 210,
+        score: 4.8,
+        totalRatings: 150,
+      },
+      sessionsPlayed: 120,
+      yearsExperiencePlayer: 10,
+      yearsExperienceDungeonMaster: 7,
+      platformTime: "2 years",
+      proficiencies: ["Narrativo", "Flexível", "Criativo"],
+      aboutMe:
+        "Eu adoro criar aventuras intensas e desafiadoras, onde os jogadores sempre podem esperar o inesperado.",
+      style:
+        "Narrativo com ênfase em descrições detalhadas e mecânicas ajustadas",
+      systemsPlayed: ["Dungeons & Dragons 5e", "Vampire: The Masquerade"],
+      socialLinks: {
+        twitter: "https://twitter.com/dm_alice",
+        instagram: "https://instagram.com/dm_alice_adventures",
       },
     },
     experience: "Beginner",
@@ -449,11 +659,26 @@ const mockGrimoire = [
     },
     duration: "2 hours",
     dungeonMaster: {
-      name: "Jane",
-      avatarUrl: "/dm-avatar-14.jpg",
+      id: "dm1",
+      name: "Alice",
+      avatarUrl: "/girl.jpg",
       rating: {
-        score: 4.5,
-        totalRatings: 170,
+        score: 4.8,
+        totalRatings: 150,
+      },
+      sessionsPlayed: 120,
+      yearsExperiencePlayer: 10,
+      yearsExperienceDungeonMaster: 7,
+      platformTime: "2 years",
+      proficiencies: ["Narrativo", "Flexível", "Criativo"],
+      aboutMe:
+        "Eu adoro criar aventuras intensas e desafiadoras, onde os jogadores sempre podem esperar o inesperado.",
+      style:
+        "Narrativo com ênfase em descrições detalhadas e mecânicas ajustadas",
+      systemsPlayed: ["Dungeons & Dragons 5e", "Vampire: The Masquerade"],
+      socialLinks: {
+        twitter: "https://twitter.com/dm_alice",
+        instagram: "https://instagram.com/dm_alice_adventures",
       },
     },
     experience: "Beginner",
@@ -463,12 +688,26 @@ const mockGrimoire = [
   },
 ]
 
-interface DungeonMasterProps {
+export interface DungeonMasterProps {
+  id: string
   name: string
   avatarUrl: string
   rating: {
     score: number
     totalRatings: number
+  }
+  sessionsPlayed: number
+  yearsExperiencePlayer: number
+  yearsExperienceDungeonMaster: number
+  platformTime: string
+  proficiencies: string[] // Ex.: ["Organizado", "Criativo", "Flexível"]
+  aboutMe: string
+  style: string // Ex.: "Narrativo e descritivo, com ênfase na imersão"
+  systemsPlayed: string[] // Ex.: ["Dungeons & Dragons", "Pathfinder"]
+  socialLinks: {
+    twitter?: string
+    instagram?: string
+    youtube?: string
   }
 }
 
@@ -486,7 +725,7 @@ interface ScheduleProps {
 }
 
 // Interface principal do Grimoire
-export interface GrimoireCardProps {
+export interface GrimoireProps {
   id: number
   maxPlayers: number
   minPlayers: number
@@ -503,7 +742,7 @@ export interface GrimoireCardProps {
   banner: string // URL da imagem do banner
 }
 
-const GetGrimoire = async (): Promise<GrimoireCardProps[]> => {
+const GetGrimoire = async (): Promise<GrimoireProps[]> => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(mockGrimoire)

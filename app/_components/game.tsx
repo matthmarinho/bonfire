@@ -1,4 +1,4 @@
-import { GrimoireCardProps } from "../_services/getGrimoire"
+import { GrimoireProps } from "../_services/getGrimoire"
 import { Button } from "./ui/button"
 import {
   Drawer,
@@ -20,13 +20,14 @@ import dayjs from "dayjs"
 import "dayjs/locale/pt-br"
 import { Separator } from "./ui/separator"
 import { Alert, AlertDescription } from "./ui/alert"
+import DMCard from "./dmCard"
 dayjs.locale("pt-br")
 
 interface GameProps {
   open: boolean
   // eslint-disable-next-line no-unused-vars
   setOpen: (value: boolean) => void
-  game: GrimoireCardProps
+  game: GrimoireProps
 }
 
 const Game = ({ open, setOpen, game }: GameProps) => {
@@ -50,7 +51,7 @@ const Game = ({ open, setOpen, game }: GameProps) => {
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerContent className="border-none">
-        <div className="h-screen overflow-y-auto">
+        <div className="h-[calc(100vh-64px)] overflow-y-auto">
           <div className="relative inset-y-0 h-60 w-full">
             <Image
               alt={game.title}
@@ -104,8 +105,9 @@ const Game = ({ open, setOpen, game }: GameProps) => {
               <h1 className="text-2xl font-semibold leading-none tracking-tight">
                 About the adventure
               </h1>
-              <p className="whitespace-break-spaces">{game.about}</p>
+              <p className="whitespace-break-spaces text-sm">{game.about}</p>
             </div>
+            <DMCard dungeonMaster={game.dungeonMaster} />
           </div>
         </div>
         <DrawerFooter className="pt-2">

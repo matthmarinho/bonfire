@@ -20,7 +20,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
 import Rating from "./rating"
 import dayjs from "dayjs"
 import "dayjs/locale/pt-br"
-import GetGrimoire, { GrimoireCardProps } from "../_services/getGrimoire"
+import GetGrimoire, { GrimoireProps } from "../_services/getGrimoire"
 import Loading from "./loading"
 import Game from "./game"
 
@@ -31,10 +31,10 @@ const Grimoire = () => {
   const [current, setCurrent] = useState(0)
   // eslint-disable-next-line no-unused-vars
   const [, setCount] = useState(0)
-  const [grimoireData, setGrimoireData] = useState<GrimoireCardProps[] | []>([])
+  const [grimoireData, setGrimoireData] = useState<GrimoireProps[] | []>([])
   const [loading, setLoading] = useState(true)
   const [open, setOpen] = useState(false)
-  const [currentGame, setCurrentGame] = useState<GrimoireCardProps | null>(null)
+  const [currentGame, setCurrentGame] = useState<GrimoireProps | null>(null)
 
   const handleCardClick = () => {
     setCurrentGame(grimoireData[current - 1])
@@ -134,17 +134,18 @@ const Grimoire = () => {
                           </div>
                         </div>
                         <div className="flex flex-row justify-between text-sm">
-                          <div className="flex items-center">
+                          <div className="flex items-center gap-1">
                             <Avatar>
                               <AvatarImage src="/girl.jpg" alt="@shadcn" />
                               <AvatarFallback>DM</AvatarFallback>
                             </Avatar>
-                            X
                             <p className="font-semibold text-primary-foreground">
                               {card.dungeonMaster.name}
                             </p>
                           </div>
                           <Rating
+                            color="#ffffff"
+                            size={14}
                             score={card.dungeonMaster.rating.score}
                             totalRatings={
                               card.dungeonMaster.rating.totalRatings

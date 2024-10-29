@@ -6,7 +6,7 @@ import {
   SearchIcon,
   UserIcon,
 } from "lucide-react"
-import D20Icon from "./d20Icon"
+import D20Icon from "./icons/d20Icon"
 
 const Nav = () => {
   return (

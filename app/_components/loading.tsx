@@ -1,6 +1,6 @@
 import React from "react"
 import { motion } from "framer-motion"
-import D20Icon from "./d20Icon"
+import D20Icon from "./icons/d20Icon"
 
 const loadingContainerVariants = {
   start: {
