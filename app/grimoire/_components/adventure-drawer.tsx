@@ -58,16 +58,16 @@ const AdventureDrawer = ({
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerContent className="border-none">
-        <div className="h-[calc(100vh-64px)] overflow-y-auto">
-          <div className="relative inset-y-0 h-60 w-full">
-            <Image
-              alt={adventure.title}
-              src={adventure.banner}
-              fill
-              className={"h-full w-full rounded-md object-cover"}
-            />
-          </div>
-          <div className="flex flex-col gap-8 p-4">
+        <div className="h-[calc(100vh-106px)] overflow-y-auto border-none">
+          <div className="flex flex-col gap-8 px-4">
+            <div className="rounded-base relative h-60 border-2 border-border shadow-light">
+              <Image
+                alt={adventure.title}
+                src={adventure.banner}
+                fill
+                className={"h-full w-full object-cover"}
+              />
+            </div>
             <DrawerHeader className="p-0 text-left">
               <DrawerTitle className="font-semibold">
                 {adventure.title}
@@ -124,7 +124,7 @@ const AdventureDrawer = ({
         </div>
         <DrawerFooter className="pt-2">
           {requested ? (
-            <Button variant="tertiary" disabled>
+            <Button variant="noShadow" disabled>
               Requested!
             </Button>
           ) : (

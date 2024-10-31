@@ -1,13 +1,17 @@
-import { FlameKindlingIcon } from "lucide-react"
-import Link from "next/link"
+import { Lexend_Mega } from "next/font/google"
+import { cn } from "../_lib/utils"
+
+const lexend = Lexend_Mega({ subsets: ["latin"] })
 
 const Header = () => {
   return (
-    <div className="flex h-12 flex-row items-center justify-center gap-1">
-      <Link href="/">
-        <FlameKindlingIcon color="#f07421" size={22} />
-      </Link>
-      <p className="text-xl font-semibold text-primary">bonfire</p>
+    <div
+      className={cn(
+        "flex h-12 flex-row items-center justify-center gap-1",
+        lexend.className,
+      )}
+    >
+      <p className="text-xl font-bold">BONFIRE</p>
     </div>
   )
 }

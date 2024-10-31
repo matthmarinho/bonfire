@@ -59,25 +59,25 @@
   }
 
   .bonfire {
-    --background: 0 0% 95%;
+    --background: 220 27% 91%;
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3.9%;
-    --primary: 24 87% 54%;
+    --primary: 47 100% 66%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 32 86% 53%;
+    --secondary: 47 100% 50%;
     --secondary-foreground: 0 0% 100%;
-    --tertiary: 220 70% 50%;
+    --tertiary: 80 76% 55%;
     --tertiary-foreground: 0 0% 100%;
     --muted: 0 0% 55%;
     --muted-foreground: 0 0% 3.9%;
-    --accent: 40 85% 53%;
+    --accent: 47 100% 50%;
     --accent-foreground: 0 0% 3.9%;
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 100% 70%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 63.9%;
+    --border: 0 0% 0%;
     --input: 0 0% 89.8%;
     --ring: 0 0% 3.9%;
     --chart-1: 12 76% 61%;

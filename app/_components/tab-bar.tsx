@@ -16,8 +16,8 @@ import {
 
 const TabBar = () => {
   return (
-    <div className="fixed bottom-0 flex h-12 w-full items-center justify-around bg-background">
-      <NavigationMenu className="gap-4">
+    <div className="fixed bottom-0 flex h-20 w-full items-center justify-around bg-transparent">
+      <NavigationMenu className="rounded-base gap-4 border-2 border-border bg-background shadow-light">
         <NavigationMenuList>
           <NavigationMenuItem>
             <Link href="/" legacyBehavior passHref>

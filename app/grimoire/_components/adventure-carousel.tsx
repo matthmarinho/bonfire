@@ -38,23 +38,23 @@ const AdventureCarousel = ({
   handleCardClick,
 }: AdventureCarouselProps) => {
   return (
-    <div>
-      <Carousel setApi={setApi}>
-        <CarouselContent>
+    <div className="mb-4">
+      <Carousel setApi={setApi} className="w-full">
+        <CarouselContent className="px-4 pb-6">
           {grimoireData.map((card) => (
             <CarouselItem key={card.id}>
-              <Card className="border-none">
+              <Card>
                 <CardContent
-                  className="relative flex h-[calc(100vh-96px)] w-screen flex-col items-center justify-center p-0"
+                  className="relative flex h-[calc(100vh-136px)] w-full flex-col items-center justify-center"
                   onClick={handleCardClick}
                 >
                   <Image
                     alt={card.title}
                     src={card.banner}
                     fill
-                    className={"rounded-md object-cover"}
+                    className={"object-cover"}
                   />
-                  <div className="absolute inset-x-0 bottom-0 z-50 rounded-b-xl bg-gradient-to-t from-black via-black/90 to-black/10">
+                  <div className="rounded-base absolute inset-x-0 bottom-0 z-50 m-4 border-2 border-border bg-background shadow-light">
                     <div className="space-y-4 p-4">
                       {card.currentPlayers === 0 ? (
                         <Badge className="bg-tertiary">
@@ -66,33 +66,31 @@ const AdventureCarousel = ({
                         </Badge>
                       )}
                       <div>
-                        <h1 className="text-3xl font-semibold text-primary-foreground">
-                          {card.title}
-                        </h1>
-                        <p className="text-sm text-primary-foreground">
+                        <h1 className="text-2xl font-semibold">{card.title}</h1>
+                        <p className="text-sm">
                           {card.system} | {card.format.name}
                         </p>
                       </div>
                       <div className="text-sm">
-                        <div className="justify-left flex flex-row items-center gap-1 text-primary-foreground">
+                        <div className="justify-left flex flex-row items-center gap-1">
                           <ClockIcon size={16} />
                           <p>
                             {card.schedule.frequency} / {card.schedule.day} -{" "}
                             {card.schedule.time}
                           </p>
                         </div>
-                        <div className="justify-left flex flex-row items-center gap-1 text-primary-foreground">
+                        <div className="justify-left flex flex-row items-center gap-1">
                           <CalendarIcon size={16} />
                           <p>
                             {dayjs(card.nextSession.date).format("DD MMM")} /
                             Session {card.nextSession.sessionNumber}
                           </p>
                         </div>
-                        <div className="justify-left flex flex-row items-center gap-1 text-primary-foreground">
+                        <div className="justify-left flex flex-row items-center gap-1">
                           <TimerIcon size={16} />
                           <p>{card.duration} Hour duration</p>
                         </div>
-                        <div className="justify-left flex flex-row items-center gap-1 text-primary-foreground">
+                        <div className="justify-left flex flex-row items-center gap-1">
                           <UsersRoundIcon size={16} />
                           <p>
                             {card.currentPlayers} / {card.maxPlayers} Seats
@@ -101,17 +99,16 @@ const AdventureCarousel = ({
                         </div>
                       </div>
                       <div className="flex flex-row justify-between text-sm">
-                        <div className="flex items-center gap-1">
+                        <div className="flex items-center gap-2">
                           <Avatar>
                             <AvatarImage src="/girl.jpg" alt="@shadcn" />
                             <AvatarFallback>DM</AvatarFallback>
                           </Avatar>
-                          <p className="font-semibold text-primary-foreground">
+                          <p className="font-semibold">
                             {card.dungeonMaster.name}
                           </p>
                         </div>
                         <Rating
-                          color="#ffffff"
                           size={14}
                           score={card.dungeonMaster.rating.score}
                           totalRatings={card.dungeonMaster.rating.totalRatings}
