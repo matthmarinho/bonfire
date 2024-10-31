@@ -2,6 +2,8 @@ import type { Metadata } from "next"
 import { Archivo } from "next/font/google"
 import "./globals.css"
 import { Toaster } from "@/app/_components/ui/toaster"
+import Header from "./_components/header"
+import TabBar from "./_components/tab-bar"
 
 const archivo = Archivo({ subsets: ["latin"] })
 
@@ -19,7 +21,9 @@ export default function RootLayout({
     <html lang="en" className="bonfire">
       <body className={archivo.className}>
         <div className="flex h-full flex-col">
+          <Header />
           <div className="flex-1">{children}</div>
+          <TabBar />
         </div>
         <Toaster />
       </body>

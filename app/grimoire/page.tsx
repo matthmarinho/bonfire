@@ -7,8 +7,6 @@ import "dayjs/locale/pt-br"
 import GetGrimoire, { GrimoireProps } from "../_actions/get-grimoire"
 import AdventureDrawer from "./_components/adventure-drawer"
 import Loading from "../_components/loading"
-import TabBar from "../_components/tab-bar"
-import Header from "../_components/header"
 import AdventureCarousel from "./_components/adventure-carousel"
 
 dayjs.locale("pt-br")
@@ -55,8 +53,7 @@ const Grimoire = () => {
 
   return (
     <>
-      <Header />
-      <div className="h-[calc(100vh-96px)] w-full">
+      <div className="h-[calc(100vh-126px)] w-full">
         {loading ? (
           <Loading />
         ) : (
@@ -74,7 +71,6 @@ const Grimoire = () => {
           adventure={currentAdventure}
         />
       )}
-      <TabBar />
     </>
   )
 }

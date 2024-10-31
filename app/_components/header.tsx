@@ -5,14 +5,16 @@ const lexend = Lexend_Mega({ subsets: ["latin"] })
 
 const Header = () => {
   return (
-    <div
-      className={cn(
-        "flex h-12 flex-row items-center justify-center gap-1",
-        lexend.className,
-      )}
-    >
-      <p className="text-xl font-bold">BONFIRE</p>
-    </div>
+    <header>
+      <nav
+        className={cn(
+          "flex-no-wrap relative flex h-10 w-full items-center justify-center gap-1 bg-background",
+          lexend.className,
+        )}
+      >
+        <p className="text-xl font-bold">BONFIRE</p>
+      </nav>
+    </header>
   )
 }
 

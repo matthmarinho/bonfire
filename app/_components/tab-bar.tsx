@@ -17,12 +17,12 @@ import {
 const TabBar = () => {
   return (
     <div className="fixed bottom-0 flex h-20 w-full items-center justify-around bg-transparent">
-      <NavigationMenu className="rounded-base gap-4 border-2 border-border bg-background shadow-light">
+      <NavigationMenu className="rounded-base gap-4 border-2 border-border bg-white shadow-light">
         <NavigationMenuList>
           <NavigationMenuItem>
-            <Link href="/" legacyBehavior passHref>
+            <Link href="/adventures" legacyBehavior passHref>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                <FlameKindlingIcon />
+                <D20Icon />
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
@@ -36,7 +36,7 @@ const TabBar = () => {
           <NavigationMenuItem>
             <Link href="/grimoire" legacyBehavior passHref>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                <D20Icon />
+                <FlameKindlingIcon />
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>

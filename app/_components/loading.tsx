@@ -36,7 +36,7 @@ export default function Loading() {
     <div className="flex h-full items-center">
       <div className="flex w-full items-center justify-center">
         <motion.div
-          className="flex justify-around gap-2 text-primary"
+          className="flex justify-around gap-2"
           variants={loadingContainerVariants}
           initial="start"
           animate="end"
@@ -46,21 +46,21 @@ export default function Loading() {
             variants={loadingCircleVariants}
             transition={loadingCircleTransition}
           >
-            <D20Icon width={16} height={16} />
+            <D20Icon width={24} height={24} />
           </motion.span>
           <motion.span
             className="display-block"
             variants={loadingCircleVariants}
             transition={loadingCircleTransition}
           >
-            <D20Icon width={16} height={16} />
+            <D20Icon width={24} height={24} />
           </motion.span>
           <motion.span
             className="display-block"
             variants={loadingCircleVariants}
             transition={loadingCircleTransition}
           >
-            <D20Icon width={16} height={16} />
+            <D20Icon width={24} height={24} />
           </motion.span>
         </motion.div>
       </div>

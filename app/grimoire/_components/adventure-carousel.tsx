@@ -38,14 +38,14 @@ const AdventureCarousel = ({
   handleCardClick,
 }: AdventureCarouselProps) => {
   return (
-    <div className="mb-4">
-      <Carousel setApi={setApi} className="w-full">
-        <CarouselContent className="px-4 pb-6">
+    <>
+      <Carousel setApi={setApi}>
+        <CarouselContent className="px-6">
           {grimoireData.map((card) => (
-            <CarouselItem key={card.id}>
+            <CarouselItem key={card.id} className="pb-2">
               <Card>
                 <CardContent
-                  className="relative flex h-[calc(100vh-136px)] w-full flex-col items-center justify-center"
+                  className="relative flex h-[calc(100vh-126px)] w-full flex-col items-center justify-center"
                   onClick={handleCardClick}
                 >
                   <Image
@@ -54,7 +54,7 @@ const AdventureCarousel = ({
                     fill
                     className={"object-cover"}
                   />
-                  <div className="rounded-base absolute inset-x-0 bottom-0 z-50 m-4 border-2 border-border bg-background shadow-light">
+                  <div className="rounded-base absolute inset-x-0 bottom-0 z-50 m-4 border-2 border-border bg-white shadow-light">
                     <div className="space-y-4 p-4">
                       {card.currentPlayers === 0 ? (
                         <Badge className="bg-tertiary">
@@ -122,7 +122,7 @@ const AdventureCarousel = ({
           ))}
         </CarouselContent>
       </Carousel>
-    </div>
+    </>
   )
 }
 

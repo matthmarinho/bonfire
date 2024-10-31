@@ -111,7 +111,6 @@ const AdventureCarousel = ({
                           </p>
                         </div>
                         <Rating
-                          color="#ffffff"
                           size={14}
                           score={card.dungeonMaster.rating.score}
                           totalRatings={card.dungeonMaster.rating.totalRatings}
