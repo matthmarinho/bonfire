@@ -1,6 +1,34 @@
+const rpgFormats = [
+  {
+    name: "Campaign",
+    description:
+      "A long-term game with a continuous storyline spanning multiple sessions.",
+  },
+  {
+    name: "One-shot",
+    description:
+      "A standalone game designed to be completed in a single session.",
+  },
+  {
+    name: "Mini-campaign",
+    description:
+      "A shorter campaign, usually lasting a few sessions with a focused storyline.",
+  },
+  {
+    name: "Episodic Campaign",
+    description:
+      "A series of loosely connected adventures, where each session can stand alone.",
+  },
+  {
+    name: "West Marches Campaign",
+    description:
+      "A player-driven game with an open world, flexible player groups, and sandbox style.",
+  },
+]
+
 const mockGrimoire = [
   {
-    id: 1,
+    id: "1",
     maxPlayers: 4,
     minPlayers: 2,
     currentPlayers: 3,
@@ -41,6 +69,7 @@ const mockGrimoire = [
     },
     experience: "Beginner",
     age: "+12",
+    format: rpgFormats[0],
     about: `The Radiant Citadel: an ethereal, floating city carved out of a single, massive fossil that snakes around a gemstone shard known as the Auroral Diamond. Abandoned and lost for ages, the Citadel was rediscovered and resurrected from its slumber.
             \nThe existence of the Citadel is nought but a dimly understood rumour for most who dwell on the earth...
             \n... But not you.
@@ -53,7 +82,7 @@ const mockGrimoire = [
       "https://s3-sa-east-1.amazonaws.com/cdn.br.catarse/uploads/redactor_rails/picture/data/546900/e76f2b1a-aa1e-472c-a5db-e5b13d0f7db9.png",
   },
   {
-    id: 2,
+    id: "2",
     maxPlayers: 5,
     minPlayers: 3,
     currentPlayers: 3,
@@ -94,11 +123,12 @@ const mockGrimoire = [
     },
     experience: "Beginner",
     age: "+12",
+    format: rpgFormats[1],
     about: "",
     banner: "https://picsum.photos/id/542/200/300",
   },
   {
-    id: 3,
+    id: "3",
     maxPlayers: 6,
     minPlayers: 3,
     currentPlayers: 0,
@@ -139,12 +169,13 @@ const mockGrimoire = [
     },
     experience: "Beginner",
     age: "+12",
+    format: rpgFormats[2],
     about:
       "The existence of the Citadel is nought but a dimly understood rumour for most who dwell on the earth...",
     banner: "https://picsum.photos/id/358/200/300",
   },
   {
-    id: 4,
+    id: "4",
     maxPlayers: 5,
     minPlayers: 3,
     currentPlayers: 2,
@@ -185,11 +216,12 @@ const mockGrimoire = [
     },
     experience: "Beginner",
     age: "+12",
+    format: rpgFormats[3],
     about: "",
     banner: "https://picsum.photos/id/123/200/300",
   },
   {
-    id: 5,
+    id: "5",
     maxPlayers: 7,
     minPlayers: 4,
     currentPlayers: 5,
@@ -230,11 +262,12 @@ const mockGrimoire = [
     },
     experience: "Beginner",
     age: "+12",
+    format: rpgFormats[4],
     about: "... But not you.",
     banner: "https://picsum.photos/id/666/200/300",
   },
   {
-    id: 6,
+    id: "6",
     maxPlayers: 8,
     minPlayers: 4,
     currentPlayers: 6,
@@ -275,11 +308,12 @@ const mockGrimoire = [
     },
     experience: "Beginner",
     age: "+12",
+    format: rpgFormats[0],
     about: "",
     banner: "https://picsum.photos/id/237/200/300",
   },
   {
-    id: 7,
+    id: "7",
     maxPlayers: 6,
     minPlayers: 2,
     currentPlayers: 4,
@@ -320,12 +354,13 @@ const mockGrimoire = [
     },
     experience: "Beginner",
     age: "+12",
+    format: rpgFormats[0],
     about:
       "You are different. You have been granted special permission to live on the Radiant Citadel. In exchange, you are obligated to use your special skills to bring peace and harmony to the Founders' lands. It is a golden opportunity: a chance to learn of the other cultures of the world, to meet your Dawn Incarnate, maybe even to have an adventure or two...",
     banner: "https://picsum.photos/id/238/200/300",
   },
   {
-    id: 8,
+    id: "8",
     maxPlayers: 7,
     minPlayers: 4,
     currentPlayers: 5,
@@ -366,11 +401,12 @@ const mockGrimoire = [
     },
     experience: "Beginner",
     age: "+12",
+    format: rpgFormats[0],
     about: "",
     banner: "https://picsum.photos/id/239/200/300",
   },
   {
-    id: 9,
+    id: "9",
     maxPlayers: 4,
     minPlayers: 2,
     currentPlayers: 3,
@@ -411,11 +447,12 @@ const mockGrimoire = [
     },
     experience: "Beginner",
     age: "+12",
+    format: rpgFormats[0],
     about: "~~~",
     banner: "https://picsum.photos/id/287/200/300",
   },
   {
-    id: 10,
+    id: "10",
     maxPlayers: 5,
     minPlayers: 3,
     currentPlayers: 2,
@@ -456,11 +493,12 @@ const mockGrimoire = [
     },
     experience: "Beginner",
     age: "+12",
+    format: rpgFormats[0],
     about: "",
     banner: "https://picsum.photos/id/277/200/300",
   },
   {
-    id: 11,
+    id: "11",
     maxPlayers: 6,
     minPlayers: 3,
     currentPlayers: 4,
@@ -501,12 +539,13 @@ const mockGrimoire = [
     },
     experience: "Beginner",
     age: "+12",
+    format: rpgFormats[0],
     about:
       "We will use Roll20, (for its VTT) D&DBeyond (for its character sheets/content sharing) and Discord (for voice chatting.) Detailed battlemaps, ambient music and dynamic lighting will be provided for immersive gameplay.",
     banner: "https://picsum.photos/id/267/200/300",
   },
   {
-    id: 12,
+    id: "12",
     maxPlayers: 8,
     minPlayers: 5,
     currentPlayers: 7,
@@ -547,11 +586,12 @@ const mockGrimoire = [
     },
     experience: "Beginner",
     age: "+12",
+    format: rpgFormats[0],
     about: "",
     banner: "https://picsum.photos/id/257/200/300",
   },
   {
-    id: 13,
+    id: "13",
     maxPlayers: 4,
     minPlayers: 2,
     currentPlayers: 3,
@@ -592,12 +632,13 @@ const mockGrimoire = [
     },
     experience: "Beginner",
     age: "+12",
+    format: rpgFormats[0],
     about:
       "I am available to field questions for newer players, as well as provide rules/character building help.",
     banner: "https://picsum.photos/id/247/200/300",
   },
   {
-    id: 14,
+    id: "14",
     maxPlayers: 6,
     minPlayers: 3,
     currentPlayers: 4,
@@ -638,11 +679,12 @@ const mockGrimoire = [
     },
     experience: "Beginner",
     age: "+12",
+    format: rpgFormats[0],
     about: "",
     banner: "https://picsum.photos/id/337/200/300",
   },
   {
-    id: 15,
+    id: "15",
     maxPlayers: 7,
     minPlayers: 5,
     currentPlayers: 6,
@@ -683,6 +725,7 @@ const mockGrimoire = [
     },
     experience: "Beginner",
     age: "+12",
+    format: rpgFormats[0],
     about: "LGBTQ+ players welcome!",
     banner: "https://picsum.photos/id/227/200/300",
   },
@@ -724,9 +767,14 @@ interface ScheduleProps {
   time: string // Horário (ex: "8:00 PM")
 }
 
+interface FormatProps {
+  name: string // Formato ISO 8601 (ex: "2024-11-04T20:00:00Z")
+  description: string
+}
+
 // Interface principal do Grimoire
 export interface GrimoireProps {
-  id: number
+  id: string
   maxPlayers: number
   minPlayers: number
   currentPlayers: number
@@ -738,6 +786,7 @@ export interface GrimoireProps {
   dungeonMaster: DungeonMasterProps
   experience: string
   age: string
+  format: FormatProps
   about: string
   banner: string // URL da imagem do banner
 }

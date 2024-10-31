@@ -1,14 +1,11 @@
-import { GrimoireProps } from "../_services/getGrimoire"
-import { Button } from "./ui/button"
 import {
   Drawer,
-  DrawerClose,
   DrawerContent,
   DrawerDescription,
   DrawerFooter,
   DrawerHeader,
   DrawerTitle,
-} from "./ui/drawer"
+} from "@/app/_components/ui/drawer"
 import Image from "next/image"
 import {
   CalendarIcon,
@@ -18,29 +15,39 @@ import {
 } from "lucide-react"
 import dayjs from "dayjs"
 import "dayjs/locale/pt-br"
-import { Separator } from "./ui/separator"
-import { Alert, AlertDescription } from "./ui/alert"
-import DMCard from "./dmCard"
+import { Separator } from "@/app/_components/ui/separator"
+import { Alert, AlertDescription } from "@/app/_components/ui/alert"
+import DMCard from "../../_components/dmCard"
+import { AdventureProps } from "../../_actions/get-adventure"
+import RequestAdventureDialog from "./request-adventure-dialog"
+import { useState } from "react"
+import { Button } from "@/app/_components/ui/button"
 dayjs.locale("pt-br")
 
-interface GameProps {
+interface AdventureDrawerProps {
   open: boolean
   // eslint-disable-next-line no-unused-vars
   setOpen: (value: boolean) => void
-  game: GrimoireProps
+  adventure: AdventureProps
 }
 
-const Game = ({ open, setOpen, game }: GameProps) => {
+const AdventureDrawer = ({
+  open,
+  setOpen,
+  adventure,
+}: AdventureDrawerProps) => {
+  const [requested, setRequested] = useState(false)
   const alert = () => {
-    const isNotReady = game.currentPlayers < game.minPlayers
+    const isNotReady = adventure.currentPlayers < adventure.minPlayers
     return (
       isNotReady && (
         <>
           <Separator />
           <Alert>
             <AlertDescription>
-              This game will begin once {game.minPlayers - game.currentPlayers}{" "}
-              players have joined
+              This adventure will begin once{" "}
+              {adventure.minPlayers - adventure.currentPlayers} players have
+              joined
             </AlertDescription>
           </Alert>
         </>
@@ -54,16 +61,18 @@ const Game = ({ open, setOpen, game }: GameProps) => {
         <div className="h-[calc(100vh-64px)] overflow-y-auto">
           <div className="relative inset-y-0 h-60 w-full">
             <Image
-              alt={game.title}
-              src={game.banner}
+              alt={adventure.title}
+              src={adventure.banner}
               fill
               className={"h-full w-full rounded-md object-cover"}
             />
           </div>
           <div className="flex flex-col gap-8 p-4">
             <DrawerHeader className="p-0 text-left">
-              <DrawerTitle className="font-semibold">{game.title}</DrawerTitle>
-              <DrawerDescription>{game.system}</DrawerDescription>
+              <DrawerTitle className="font-semibold">
+                {adventure.title}
+              </DrawerTitle>
+              <DrawerDescription>{adventure.system}</DrawerDescription>
             </DrawerHeader>
             <div className="flex flex-col gap-4">
               <div className="flex flex-col gap-1 text-sm">
@@ -71,33 +80,34 @@ const Game = ({ open, setOpen, game }: GameProps) => {
                 <div className="justify-left flex flex-row items-center gap-1">
                   <ClockIcon size={16} />
                   <p>
-                    {game.schedule.frequency} / {game.schedule.day} -{" "}
-                    {game.schedule.time}
+                    {adventure.schedule.frequency} / {adventure.schedule.day} -{" "}
+                    {adventure.schedule.time}
                   </p>
                 </div>
                 <div className="justify-left flex flex-row items-center gap-1">
                   <CalendarIcon size={16} />
                   <p>
-                    {dayjs(game.nextSession.date).format("DD MMM")} / Session{" "}
-                    {game.nextSession.sessionNumber}
+                    {dayjs(adventure.nextSession.date).format("DD MMM")} /
+                    Session {adventure.nextSession.sessionNumber}
                   </p>
                 </div>
                 <div className="justify-left flex flex-row items-center gap-1">
                   <TimerIcon size={16} />
-                  <p>{game.duration} Hour duration</p>
+                  <p>{adventure.duration} Hour duration</p>
                 </div>
                 <div className="justify-left flex flex-row items-center gap-1">
                   <UsersRoundIcon size={16} />
                   <p>
-                    {game.currentPlayers} / {game.maxPlayers} Seats filled
+                    {adventure.currentPlayers} / {adventure.maxPlayers} Seats
+                    filled
                   </p>
                 </div>
               </div>
               <Separator />
               <div className="flex flex-col gap-1 text-sm">
                 <span className="pb-1 font-semibold text-muted">DETAILS</span>
-                <p>Experience required: {game.experience}</p>
-                <p>Age: {game.age}</p>
+                <p>Experience required: {adventure.experience}</p>
+                <p>Age: {adventure.age}</p>
               </div>
               {alert()}
             </div>
@@ -105,19 +115,28 @@ const Game = ({ open, setOpen, game }: GameProps) => {
               <h1 className="text-2xl font-semibold leading-none tracking-tight">
                 About the adventure
               </h1>
-              <p className="whitespace-break-spaces text-sm">{game.about}</p>
+              <p className="whitespace-break-spaces text-sm">
+                {adventure.about}
+              </p>
             </div>
-            <DMCard dungeonMaster={game.dungeonMaster} />
+            <DMCard dungeonMaster={adventure.dungeonMaster} />
           </div>
         </div>
         <DrawerFooter className="pt-2">
-          <DrawerClose asChild>
-            <Button>Join</Button>
-          </DrawerClose>
+          {requested ? (
+            <Button variant="tertiary" disabled>
+              Requested!
+            </Button>
+          ) : (
+            <RequestAdventureDialog
+              adventure={adventure}
+              setRequested={setRequested}
+            />
+          )}
         </DrawerFooter>
       </DrawerContent>
     </Drawer>
   )
 }
 
-export default Game
+export default AdventureDrawer

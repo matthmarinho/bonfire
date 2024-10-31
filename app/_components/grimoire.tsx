@@ -20,9 +20,9 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
 import Rating from "./rating"
 import dayjs from "dayjs"
 import "dayjs/locale/pt-br"
-import GetGrimoire, { GrimoireProps } from "../_services/getGrimoire"
+import GetGrimoire, { GrimoireProps } from "../_actions/get-grimoire"
 import Loading from "./loading"
-import Game from "./game"
+import Game from "../grimoire/_components/adventure-drawer"
 
 dayjs.locale("pt-br")
 
@@ -34,10 +34,11 @@ const Grimoire = () => {
   const [grimoireData, setGrimoireData] = useState<GrimoireProps[] | []>([])
   const [loading, setLoading] = useState(true)
   const [open, setOpen] = useState(false)
-  const [currentGame, setCurrentGame] = useState<GrimoireProps | null>(null)
+  const [currentAdventure, setCurrentAdventure] =
+    useState<GrimoireProps | null>(null)
 
   const handleCardClick = () => {
-    setCurrentGame(grimoireData[current - 1])
+    setCurrentAdventure(grimoireData[current - 1])
     setOpen(true)
   }
 
@@ -103,7 +104,7 @@ const Grimoire = () => {
                             {card.title}
                           </h1>
                           <p className="text-sm text-primary-foreground">
-                            {card.system}
+                            {card.system} | {card.format.name}
                           </p>
                         </div>
                         <div className="text-sm">
@@ -161,7 +162,9 @@ const Grimoire = () => {
           </CarouselContent>
         </Carousel>
       </div>
-      {currentGame && <Game open={open} setOpen={setOpen} game={currentGame} />}
+      {currentAdventure && (
+        <Game open={open} setOpen={setOpen} adventure={currentAdventure} />
+      )}
     </>
   )
 }

@@ -10,7 +10,7 @@ import D20Icon from "./icons/d20Icon"
 
 const Nav = () => {
   return (
-    <div className="flex h-12 w-full items-center justify-around bg-background">
+    <div className="fixed bottom-0 flex h-12 w-full items-center justify-around bg-background">
       <Link href="/">
         <Button size="icon" variant="invisible">
           <FlameKindlingIcon />

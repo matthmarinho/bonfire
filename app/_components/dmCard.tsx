@@ -1,5 +1,5 @@
 import { FlagIcon, FlameKindlingIcon } from "lucide-react"
-import { DungeonMasterProps } from "../_services/getGrimoire"
+import { DungeonMasterProps } from "../_actions/get-grimoire"
 import Rating from "./rating"
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
 import { Card, CardContent, CardHeader } from "./ui/card"
