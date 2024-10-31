@@ -7,7 +7,7 @@ import "dayjs/locale/pt-br"
 import GetGrimoire, { GrimoireProps } from "../_actions/get-grimoire"
 import AdventureDrawer from "./_components/adventure-drawer"
 import Loading from "../_components/loading"
-import Nav from "../_components/nav"
+import TabBar from "../_components/tab-bar"
 import Header from "../_components/header"
 import AdventureCarousel from "./_components/adventure-carousel"
 
@@ -74,7 +74,7 @@ const Grimoire = () => {
           adventure={currentAdventure}
         />
       )}
-      <Nav />
+      <TabBar />
     </>
   )
 }
