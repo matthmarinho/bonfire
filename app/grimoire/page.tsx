@@ -53,7 +53,7 @@ const Grimoire = () => {
 
   return (
     <>
-      <div className="h-[calc(100vh-126px)] w-full">
+      <div className="h-[calc(100vh-3rem)] w-full">
         {loading ? (
           <Loading />
         ) : (

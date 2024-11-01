@@ -8,7 +8,7 @@ const Header = () => {
     <header>
       <nav
         className={cn(
-          "flex-no-wrap relative flex h-10 w-full items-center justify-center gap-1 bg-background",
+          "flex-no-wrap relative flex h-12 w-full items-center justify-center gap-1 bg-transparent",
           lexend.className,
         )}
       >
