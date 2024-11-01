@@ -4,16 +4,23 @@ import Rating from "./rating"
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
 import { Card, CardContent, CardHeader } from "./ui/card"
 import { Badge } from "./ui/badge"
+import { cn } from "../_lib/utils"
 // import { Button } from "./ui/button"
 // import { Instagram, Youtube, Twitter } from 'lucide-react'
 
 interface DMProps {
   dungeonMaster: DungeonMasterProps
+  className?: string
 }
 
-const DMCard = ({ dungeonMaster }: DMProps) => {
+const DMCard = ({ dungeonMaster, className }: DMProps) => {
   return (
-    <Card>
+    <Card
+      className={cn(
+        "shadow-none hover:translate-x-reverseBoxShadowX hover:translate-y-reverseBoxShadowY hover:shadow-light",
+        className,
+      )}
+    >
       <CardHeader className="p-4">
         <div className="flex items-center justify-between space-x-4">
           <div className="flex items-center space-x-2">

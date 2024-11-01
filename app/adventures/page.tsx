@@ -1,19 +1,12 @@
 "use client"
 
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/app/_components/ui/card"
+import { Card, CardContent } from "@/app/_components/ui/card"
 import { Badge } from "@/app/_components/ui/badge"
-import { Button } from "@/app/_components/ui/button"
-import { BookTextIcon, CalendarIcon } from "lucide-react"
 import { Tabs, TabsList, TabsTrigger } from "../_components/ui/tabs"
 import dayjs from "dayjs"
 import "dayjs/locale/pt-br"
 import { useEffect, useState } from "react"
+import Image from "next/image"
 dayjs.locale("pt-br")
 
 interface AdventureCard {
@@ -30,6 +23,7 @@ interface AdventureCard {
   nextSession: string
   playersCount: number
   maxPlayers: number
+  banner: string
 }
 
 const cards = [
@@ -48,6 +42,8 @@ const cards = [
     nextSession: "2024-11-05T19:00:00Z",
     playersCount: 4,
     maxPlayers: 6,
+    banner:
+      "https://s3-sa-east-1.amazonaws.com/cdn.br.catarse/uploads/redactor_rails/picture/data/546900/e76f2b1a-aa1e-472c-a5db-e5b13d0f7db9.png",
   },
   {
     id: "2",
@@ -64,6 +60,7 @@ const cards = [
     nextSession: "2024-11-10T18:30:00Z",
     playersCount: 2,
     maxPlayers: 5,
+    banner: "https://picsum.photos/id/542/200/300",
   },
   {
     id: "3",
@@ -80,6 +77,8 @@ const cards = [
     nextSession: "2024-11-12T20:00:00Z",
     playersCount: 5,
     maxPlayers: 5,
+    banner:
+      "https://s3-sa-east-1.amazonaws.com/cdn.br.catarse/uploads/redactor_rails/picture/data/546900/e76f2b1a-aa1e-472c-a5db-e5b13d0f7db9.png",
   },
   {
     id: "4",
@@ -96,6 +95,8 @@ const cards = [
     nextSession: "2024-11-12T20:00:00Z",
     playersCount: 4,
     maxPlayers: 4,
+    banner:
+      "https://s3-sa-east-1.amazonaws.com/cdn.br.catarse/uploads/redactor_rails/picture/data/546900/e76f2b1a-aa1e-472c-a5db-e5b13d0f7db9.png",
   },
   {
     id: "5",
@@ -112,6 +113,8 @@ const cards = [
     nextSession: "2024-11-12T20:00:00Z",
     playersCount: 4,
     maxPlayers: 4,
+    banner:
+      "https://s3-sa-east-1.amazonaws.com/cdn.br.catarse/uploads/redactor_rails/picture/data/546900/e76f2b1a-aa1e-472c-a5db-e5b13d0f7db9.png",
   },
   {
     id: "6",
@@ -128,6 +131,8 @@ const cards = [
     nextSession: "2024-11-12T20:00:00Z",
     playersCount: 4,
     maxPlayers: 4,
+    banner:
+      "https://s3-sa-east-1.amazonaws.com/cdn.br.catarse/uploads/redactor_rails/picture/data/546900/e76f2b1a-aa1e-472c-a5db-e5b13d0f7db9.png",
   },
 ]
 
@@ -147,20 +152,16 @@ const Requests = () => {
     }
   }, [tab])
 
-  const renderBadge = (param: string) => {
-    switch (param) {
+  const renderBadge = (param: AdventureCard) => {
+    switch (param.status) {
       case "Recusado":
-        return (
-          <Badge variant="destructive" className="mb-4">
-            {param}
-          </Badge>
-        )
+        return <Badge variant="destructive">{param.status}</Badge>
       case "Requisitado":
-        return <Badge className="mb-4">{param}</Badge>
+        return <Badge>{param.status}</Badge>
       default:
         return (
-          <Badge variant="positive" className="mb-4">
-            {param}
+          <Badge variant="positive">
+            {dayjs(param.nextSession).format("DD MMM")}
           </Badge>
         )
     }
@@ -181,28 +182,29 @@ const Requests = () => {
             </TabsList>
           </Tabs>
         </div>
-        <div className="no-scrollbar mt-4 flex h-[calc(100vh-87px)] flex-col gap-5 overflow-auto px-4 pb-20 pt-11">
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div className="no-scrollbar mt-4 flex h-[calc(100vh-70px)] flex-col gap-5 overflow-auto px-4 pb-20 pt-11">
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-8">
             {adventures.map((card, index) => (
-              <Card key={index} className="flex flex-col">
-                <CardHeader className="px-4 pb-2 pt-4">
-                  <CardTitle>{card.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="flex-grow px-4 py-0 text-sm">
-                  {renderBadge(card.status)}
-
-                  <div className="justify-left flex flex-row items-center gap-1">
-                    <BookTextIcon size={16} />
-                    <p>{card.rpgFormat}</p>
-                  </div>
-                  <div className="justify-left flex flex-row items-center gap-1">
-                    <CalendarIcon size={16} />
-                    <p>{dayjs(card.nextSession).format("DD MMM")}</p>
-                  </div>
-                </CardContent>
-                <CardFooter className="flex justify-between p-4">
-                  <Button>Open</Button>
-                </CardFooter>
+              <Card
+                key={index}
+                className="flex flex-col hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none"
+              >
+                <a href={`adventures/${card.id}`}>
+                  <CardContent className="relative flex-grow p-0 text-sm">
+                    <div className="relative aspect-[3/4] rounded-lg">
+                      <Image
+                        alt={card.title}
+                        src={card.banner}
+                        fill
+                        className={"h-full w-full rounded-lg object-cover"}
+                      />
+                    </div>
+                    <div className="absolute inset-x-0 bottom-0 m-2 space-y-2 rounded-lg border-2 border-border bg-white p-2">
+                      <p className="text-base font-semibold">{card.title}</p>
+                      {renderBadge(card)}
+                    </div>
+                  </CardContent>
+                </a>
               </Card>
             ))}
           </div>

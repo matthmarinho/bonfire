@@ -45,16 +45,16 @@ const AdventureCarousel = ({
             <CarouselItem key={card.id} className="pb-2">
               <Card>
                 <CardContent
-                  className="relative flex h-[calc(100vh-126px)] w-full flex-col items-center justify-center"
+                  className="relative flex h-[calc(100vh-126px)] w-full flex-col items-center justify-center rounded-lg"
                   onClick={handleCardClick}
                 >
                   <Image
                     alt={card.title}
                     src={card.banner}
                     fill
-                    className={"object-cover"}
+                    className={"rounded-lg object-cover"}
                   />
-                  <div className="rounded-base absolute inset-x-0 bottom-0 z-50 m-4 border-2 border-border bg-white shadow-light">
+                  <div className="absolute inset-x-0 bottom-0 z-50 m-4 rounded-lg border-2 border-border bg-white">
                     <div className="space-y-4 p-4">
                       {card.currentPlayers === 0 ? (
                         <Badge className="bg-tertiary">
