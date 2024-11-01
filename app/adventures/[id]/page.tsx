@@ -66,10 +66,10 @@ const Adventure = ({ params }: AdventureParamsProps) => {
   }, [params.id])
 
   return (
-    <div className="h-[calc(100vh-3rem)] px-4">
+    <div className="h-[calc(100dvh-3rem)] px-4">
       {loading && <Loading />}
       {adventure && (
-        <Card className="flex h-[calc(100vh-8rem)] flex-col px-0 py-4">
+        <Card className="flex h-[calc(100dvh-8rem)] flex-col px-0 py-4">
           <CardContent className="no-scrollbar relative flex-grow overflow-auto px-0 pb-2 pt-0 text-sm">
             <div className="flex flex-col gap-8 px-4">
               <div className="relative h-60 rounded-lg border-2">

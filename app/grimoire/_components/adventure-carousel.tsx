@@ -40,12 +40,12 @@ const AdventureCarousel = ({
   return (
     <>
       <Carousel setApi={setApi}>
-        <CarouselContent className="h-[calc(100vh-3rem)] px-6">
+        <CarouselContent className="h-[calc(100dvh-3rem)] px-6">
           {grimoireData.map((card) => (
             <CarouselItem key={card.id}>
               <Card>
                 <CardContent
-                  className="relative flex h-[calc(100vh-8rem)] w-full flex-col items-center justify-center rounded-lg"
+                  className="relative flex h-[calc(100dvh-8rem)] w-full flex-col items-center justify-center rounded-lg"
                   onClick={handleCardClick}
                 >
                   <Image

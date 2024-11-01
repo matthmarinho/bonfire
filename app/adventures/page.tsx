@@ -171,7 +171,7 @@ const Requests = () => {
   }
 
   return (
-    <div className={cn("h-[calc(100vh-6rem)] w-full")}>
+    <div className={cn("h-[calc(100dvh-6rem)] w-full")}>
       <div className="absolute left-0 right-0 top-12 z-20 h-12">
         <Tabs className="px-4" value={tab} onValueChange={handleTabs}>
           <TabsList className="flex w-full flex-row justify-stretch shadow-light">
@@ -184,7 +184,7 @@ const Requests = () => {
           </TabsList>
         </Tabs>
       </div>
-      <div className="no-scrollbar mt-12 flex h-[calc(100vh-6rem)] w-full flex-col gap-5 overflow-y-scroll">
+      <div className="no-scrollbar mt-12 flex h-[calc(100dvh-6rem)] w-full flex-col gap-5 overflow-y-scroll">
         <div className="grid grid-cols-2 gap-4 px-4 pb-20 pt-4 md:grid-cols-4 lg:grid-cols-8">
           {adventures.map((card, index) => (
             <Card
