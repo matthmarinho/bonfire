@@ -87,6 +87,9 @@ const config: Config = {
         base: "500",
         heading: "700",
       },
+      rotate: {
+        "20": "20deg",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

@@ -14,6 +14,7 @@ import {
   CarouselItem,
 } from "@/app/_components/ui/carousel"
 import {
+  ArrowBigDownIcon,
   CalendarIcon,
   ClockIcon,
   TimerIcon,
@@ -22,6 +23,7 @@ import {
 import Image from "next/image"
 import dayjs from "dayjs"
 import "dayjs/locale/pt-br"
+import { Button } from "@/app/_components/ui/button"
 
 dayjs.locale("pt-br")
 
@@ -44,10 +46,7 @@ const AdventureCarousel = ({
           {grimoireData.map((card) => (
             <CarouselItem key={card.id}>
               <Card>
-                <CardContent
-                  className="relative flex h-[calc(100dvh-8rem)] w-full flex-col items-center justify-center rounded-lg"
-                  onClick={handleCardClick}
-                >
+                <CardContent className="relative flex h-[calc(100dvh-8rem)] w-full flex-col items-center justify-center rounded-lg">
                   <Image
                     alt={card.title}
                     src={card.banner}
@@ -55,7 +54,7 @@ const AdventureCarousel = ({
                     className={"rounded-lg object-cover"}
                   />
                   <div className="absolute inset-x-0 bottom-0 z-50 m-4 rounded-lg border-2 border-border bg-white">
-                    <div className="space-y-4 p-4">
+                    <div className="absolute -top-3 left-3">
                       {card.currentPlayers === 0 ? (
                         <Badge className="bg-tertiary">
                           {card.minPlayers} NEEDED TO START
@@ -65,6 +64,8 @@ const AdventureCarousel = ({
                           {card.maxPlayers - card.currentPlayers} SEAT LEFT
                         </Badge>
                       )}
+                    </div>
+                    <div className="space-y-4 p-4">
                       <div>
                         <h1 className="text-2xl font-semibold">{card.title}</h1>
                         <p className="text-sm">
@@ -104,15 +105,22 @@ const AdventureCarousel = ({
                             <AvatarImage src="/girl.jpg" alt="@shadcn" />
                             <AvatarFallback>DM</AvatarFallback>
                           </Avatar>
-                          <p className="font-semibold">
-                            {card.dungeonMaster.name}
-                          </p>
+                          <div className="flex flex-col">
+                            <p className="font-semibold">
+                              {card.dungeonMaster.name}
+                            </p>
+                            <Rating
+                              size={14}
+                              score={card.dungeonMaster.rating.score}
+                              totalRatings={
+                                card.dungeonMaster.rating.totalRatings
+                              }
+                            />
+                          </div>
                         </div>
-                        <Rating
-                          size={14}
-                          score={card.dungeonMaster.rating.score}
-                          totalRatings={card.dungeonMaster.rating.totalRatings}
-                        />
+                        <Button size="icon" onClick={handleCardClick}>
+                          <ArrowBigDownIcon />
+                        </Button>
                       </div>
                     </div>
                   </div>

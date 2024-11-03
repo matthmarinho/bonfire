@@ -1,5 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // redirects: async () => [
+  //   {
+  //     source: '/',
+  //     destination: '/grimoire',
+  //     permanent: true,
+  //   },
+  // ],
   images: {
     remotePatterns: [
       {

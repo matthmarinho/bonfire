@@ -4,9 +4,9 @@ import { useEffect, useState } from "react"
 import { CarouselApi } from "@/app/_components/ui/carousel"
 import dayjs from "dayjs"
 import "dayjs/locale/pt-br"
-import GetGrimoire, { GrimoireProps } from "../_actions/get-grimoire"
+import GetGrimoire, { GrimoireProps } from "../../_actions/get-grimoire"
 import AdventureDrawer from "./_components/adventure-drawer"
-import Loading from "../_components/loading"
+import Loading from "../../_components/loading-anim"
 import AdventureCarousel from "./_components/adventure-carousel"
 
 dayjs.locale("pt-br")

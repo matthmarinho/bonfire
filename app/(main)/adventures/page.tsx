@@ -2,12 +2,12 @@
 
 import { Card, CardContent } from "@/app/_components/ui/card"
 import { Badge } from "@/app/_components/ui/badge"
-import { Tabs, TabsList, TabsTrigger } from "../_components/ui/tabs"
+import { Tabs, TabsList, TabsTrigger } from "../../_components/ui/tabs"
 import dayjs from "dayjs"
 import "dayjs/locale/pt-br"
 import { useEffect, useState } from "react"
 import Image from "next/image"
-import { cn } from "../_lib/utils"
+import { cn } from "../../_lib/utils"
 dayjs.locale("pt-br")
 
 interface AdventureCard {
@@ -171,47 +171,49 @@ const Requests = () => {
   }
 
   return (
-    <div className={cn("h-[calc(100dvh-6rem)] w-full")}>
-      <div className="absolute left-0 right-0 top-12 z-20 h-12">
-        <Tabs className="px-4" value={tab} onValueChange={handleTabs}>
-          <TabsList className="flex w-full flex-row justify-stretch shadow-light">
-            <TabsTrigger className="w-full" value="adventures">
-              Adventures
-            </TabsTrigger>
-            <TabsTrigger className="w-full" value="pending">
-              Pending
-            </TabsTrigger>
-          </TabsList>
-        </Tabs>
-      </div>
-      <div className="no-scrollbar mt-12 flex h-[calc(100dvh-6rem)] w-full flex-col gap-5 overflow-y-scroll">
-        <div className="grid grid-cols-2 gap-4 px-4 pb-20 pt-4 md:grid-cols-4 lg:grid-cols-8">
-          {adventures.map((card, index) => (
-            <Card
-              key={index}
-              className="flex flex-col hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none"
-            >
-              <a href={`adventures/${card.id}`}>
-                <CardContent className="relative flex-grow p-0 text-sm">
-                  <div className="relative aspect-[3/4] rounded-lg">
-                    <Image
-                      alt={card.title}
-                      src={card.banner}
-                      fill
-                      className={"h-full w-full rounded-lg object-cover"}
-                    />
-                  </div>
-                  <div className="absolute inset-x-0 bottom-0 m-2 space-y-2 rounded-lg border-2 border-border bg-white p-2">
-                    <p className="text-base font-semibold">{card.title}</p>
-                    {renderBadge(card)}
-                  </div>
-                </CardContent>
-              </a>
-            </Card>
-          ))}
+    <>
+      <div className={cn("h-[calc(100dvh-6rem)] w-full")}>
+        <div className="absolute left-0 right-0 top-12 z-20 h-12">
+          <Tabs className="px-4" value={tab} onValueChange={handleTabs}>
+            <TabsList className="flex w-full flex-row justify-stretch shadow-light">
+              <TabsTrigger className="w-full" value="adventures">
+                Adventures
+              </TabsTrigger>
+              <TabsTrigger className="w-full" value="pending">
+                Pending
+              </TabsTrigger>
+            </TabsList>
+          </Tabs>
+        </div>
+        <div className="no-scrollbar mt-12 flex h-[calc(100dvh-6rem)] w-full flex-col gap-5 overflow-y-scroll">
+          <div className="grid grid-cols-2 gap-4 px-4 pb-20 pt-4 md:grid-cols-4 lg:grid-cols-8">
+            {adventures.map((card, index) => (
+              <Card
+                key={index}
+                className="flex flex-col hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none"
+              >
+                <a href={`adventures/${card.id}`}>
+                  <CardContent className="relative flex-grow p-0 text-sm">
+                    <div className="relative aspect-[3/4] rounded-lg">
+                      <Image
+                        alt={card.title}
+                        src={card.banner}
+                        fill
+                        className={"h-full w-full rounded-lg object-cover"}
+                      />
+                    </div>
+                    <div className="absolute inset-x-0 bottom-0 m-2 space-y-2 rounded-lg border-2 border-border bg-white p-2">
+                      <p className="text-base font-semibold">{card.title}</p>
+                      {renderBadge(card)}
+                    </div>
+                  </CardContent>
+                </a>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

@@ -1,16 +1,27 @@
-import TabBar from "./_components/tab-bar"
-import { redirect } from "next/navigation"
-import Header from "./_components/header"
+"use client"
+
+import HeroPage from "./(unauth)/hero-page"
+import { useSession } from "next-auth/react"
+import { useEffect, useState } from "react"
+import SplashScreen from "./_components/splash-screen"
 
 export default function Home() {
-  if (true) {
-    redirect(`/grimoire`)
+  const { status } = useSession()
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    if (status === "authenticated") {
+      // router.push(`/grimoire`)
+    }
+  }, [status])
+
+  const finishLoading = () => {
+    setLoading(false)
   }
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-between">
-      <Header />
-      <TabBar />
-    </div>
+    <>
+      {loading ? <SplashScreen finishLoading={finishLoading} /> : <HeroPage />}
+    </>
   )
 }

@@ -17,8 +17,8 @@ import dayjs from "dayjs"
 import "dayjs/locale/pt-br"
 import { Separator } from "@/app/_components/ui/separator"
 import { Alert, AlertDescription } from "@/app/_components/ui/alert"
-import DMCard from "../../_components/dm-card"
-import { AdventureProps } from "../../_actions/get-adventure"
+import DMCard from "../../../_components/dm-card"
+import { AdventureProps } from "../../../_actions/get-adventure"
 import RequestAdventureDialog from "./request-adventure-dialog"
 import { useState } from "react"
 import { Button } from "@/app/_components/ui/button"
@@ -69,7 +69,7 @@ const AdventureDrawer = ({
               />
             </div>
             <DrawerHeader className="p-0 text-left">
-              <DrawerTitle className="font-semibold">
+              <DrawerTitle className="text-2xl font-semibold leading-none tracking-tight">
                 {adventure.title}
               </DrawerTitle>
               <DrawerDescription>{adventure.system}</DrawerDescription>

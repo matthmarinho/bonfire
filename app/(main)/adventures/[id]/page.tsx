@@ -1,7 +1,7 @@
 "use client"
 
 import GetAdventure, { AdventureProps } from "@/app/_actions/get-adventure"
-import Loading from "@/app/_components/loading"
+import Loading from "@/app/_components/loading-anim"
 import { Alert, AlertDescription } from "@/app/_components/ui/alert"
 import {
   Card,

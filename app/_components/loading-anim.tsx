@@ -31,7 +31,7 @@ const loadingCircleTransition = {
   repeatType: "mirror" as const,
 }
 
-export default function Loading() {
+export default function LoadingAnim() {
   return (
     <div className="flex h-full items-center">
       <div className="flex w-full items-center justify-center">

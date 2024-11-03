@@ -7,7 +7,7 @@ interface RatingProps {
   size?: number
 }
 
-const Rating = ({ size = 16, score, totalRatings }: RatingProps) => {
+const Rating = ({ size = 16, score }: RatingProps) => {
   const adjustedRating = Math.min(Math.max(score, 0), 5)
   const fullStars = Math.floor(adjustedRating)
   const hasHalfStar = adjustedRating - fullStars >= 0.5
@@ -32,7 +32,6 @@ const Rating = ({ size = 16, score, totalRatings }: RatingProps) => {
           <StarHalfIcon fill="hsl(var(--secondary))" size={size} />
         )}
       </div>
-      <span>({totalRatings})</span>
     </div>
   )
 }

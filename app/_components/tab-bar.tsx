@@ -23,52 +23,57 @@ const TabBar = () => {
   return (
     <div className="fixed bottom-0 flex h-20 w-full items-center justify-around bg-transparent">
       <div className="flex gap-4">
-        <Link href="/adventures" legacyBehavior passHref>
-          <Button
-            size="icon"
-            variant={current === "adventures" ? "pressed" : "neutral"}
-            className="aspect-square"
-            onClick={() => handleMenu("adventures")}
-          >
+        <Button
+          size="icon"
+          variant={current === "adventures" ? "pressed" : "neutral"}
+          className="aspect-square"
+          onClick={() => handleMenu("adventures")}
+          asChild
+        >
+          <Link href="/adventures">
             <D20Icon />
-          </Button>
-        </Link>
-        <Link href="/" legacyBehavior passHref>
-          <Button
-            size="icon"
-            variant={current === "search" ? "pressed" : "neutral"}
-            onClick={() => handleMenu("search")}
-          >
+          </Link>
+        </Button>
+        <Button
+          size="icon"
+          variant={current === "search" ? "pressed" : "neutral"}
+          onClick={() => handleMenu("search")}
+          asChild
+        >
+          <Link href="/">
             <SearchIcon />
-          </Button>
-        </Link>
-        <Link href="/grimoire" legacyBehavior passHref>
-          <Button
-            size="icon"
-            variant={current === "grimoire" ? "pressed" : "neutral"}
-            onClick={() => handleMenu("grimoire")}
-          >
+          </Link>
+        </Button>
+        <Button
+          size="icon"
+          variant={current === "grimoire" ? "pressed" : "neutral"}
+          onClick={() => handleMenu("grimoire")}
+          asChild
+        >
+          <Link href="/grimoire">
             <FlameKindlingIcon />
-          </Button>
-        </Link>
-        <Link href="/" legacyBehavior passHref>
-          <Button
-            size="icon"
-            variant={current === "messages" ? "pressed" : "neutral"}
-            onClick={() => handleMenu("messages")}
-          >
+          </Link>
+        </Button>
+        <Button
+          size="icon"
+          variant={current === "messages" ? "pressed" : "neutral"}
+          onClick={() => handleMenu("messages")}
+          asChild
+        >
+          <Link href="/">
             <MessagesSquareIcon />
-          </Button>
-        </Link>
-        <Link href="/" legacyBehavior passHref>
-          <Button
-            size="icon"
-            variant={current === "account" ? "pressed" : "neutral"}
-            onClick={() => handleMenu("account")}
-          >
+          </Link>
+        </Button>
+        <Button
+          size="icon"
+          variant={current === "account" ? "pressed" : "neutral"}
+          onClick={() => handleMenu("account")}
+          asChild
+        >
+          <Link href="/">
             <UserIcon />
-          </Button>
-        </Link>
+          </Link>
+        </Button>
       </div>
     </div>
   )
