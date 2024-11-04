@@ -22,7 +22,7 @@ const Celebration = () => {
         </p>
       </div>
 
-      <Button size="lg" className="w-full font-semibold">
+      <Button size="lg" className="w-full font-semibold" asChild>
         <Link href="/grimoire">Explore Now!</Link>
       </Button>
     </div>

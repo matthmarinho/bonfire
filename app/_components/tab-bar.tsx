@@ -14,7 +14,7 @@ import { usePathname } from "next/navigation"
 import { signOut } from "next-auth/react"
 
 const TabBar = () => {
-  const pathname = usePathname().replace("/", "")
+  const pathname = usePathname().split("/").filter(Boolean)[0]
   const [current, setCurrent] = useState(pathname)
 
   const handleMenu = (value: string) => {

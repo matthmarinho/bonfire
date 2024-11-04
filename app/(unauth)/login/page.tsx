@@ -10,6 +10,7 @@ import { useEffect, useState } from "react"
 const Login = () => {
   const { status } = useSession()
   const [callbackUrl, setCallbackUrl] = useState("/")
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search)
@@ -17,6 +18,7 @@ const Login = () => {
   }, [])
 
   const handleLoginGoogle = () => {
+    setLoading(true)
     signIn("google", { callbackUrl })
   }
 
@@ -30,10 +32,10 @@ const Login = () => {
         <Button
           className=""
           onClick={handleLoginGoogle}
-          disabled={status === "loading"}
+          disabled={loading || status === "loading"}
         >
           <div className="flex items-center gap-1 font-semibold">
-            {status === "loading" ? (
+            {loading || status === "loading" ? (
               <D20Icon className="animate-spin" />
             ) : (
               <GoogleIcon />

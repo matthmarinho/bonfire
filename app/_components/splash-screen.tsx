@@ -26,7 +26,7 @@ const SplashScreen = ({ finishLoading }: SplashScreenProps) => {
           >
             {[...new Array(2)].map((_, index) => (
               <React.Fragment key={index}>
-                {[...new Array(3)].map((_, k) => (
+                {[...new Array(2)].map((_, k) => (
                   <p key={`${k}-name`} className="text-6xl font-extrabold">
                     BONFIRE
                   </p>

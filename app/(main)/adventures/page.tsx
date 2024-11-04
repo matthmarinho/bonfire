@@ -146,8 +146,6 @@ const Requests = () => {
   const [adventures, setAdventures] = useState<AdventureCard[] | []>([])
   const [tab, setTab] = useState("adventures")
 
-  // const isBrowser = () => typeof window !== "undefined"
-
   const handleTabs = (event: string) => {
     setTab(event)
   }
@@ -215,8 +213,10 @@ const Requests = () => {
                       />
                     </div>
                     <div className="absolute inset-x-0 bottom-0 m-2 space-y-2 rounded-lg border-2 border-border bg-white p-2">
+                      <div className="absolute -top-3 left-3">
+                        {renderBadge(card)}
+                      </div>
                       <p className="text-base font-semibold">{card.title}</p>
-                      {renderBadge(card)}
                     </div>
                   </CardContent>
                 </a>
