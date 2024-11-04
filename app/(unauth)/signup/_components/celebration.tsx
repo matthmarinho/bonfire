@@ -7,7 +7,7 @@ const lexend = Lexend_Mega({ subsets: ["latin"] })
 const Celebration = () => {
   return (
     <div className="flex h-full flex-col items-center justify-center gap-6 p-4">
-      <div className="flex flex-col rounded-lg border-2 border-border bg-white p-4 shadow-light">
+      <div className="flex w-full flex-col rounded-lg border-2 border-border bg-white p-4 shadow-light md:w-1/2">
         <h1
           className={cn(
             "mb-4 text-3xl font-extrabold tracking-tight",
@@ -22,7 +22,7 @@ const Celebration = () => {
         </p>
       </div>
 
-      <Button size="lg" className="w-full font-semibold" asChild>
+      <Button size="lg" className="w-full font-semibold md:w-1/2" asChild>
         <Link href="/grimoire">Explore Now!</Link>
       </Button>
     </div>

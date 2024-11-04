@@ -8,13 +8,21 @@ datasource db {
 }
 
 model User {
-  id            String    @id @default(cuid())
-  name          String?
-  email         String    @unique
-  emailVerified DateTime?
-  image         String?
-  accounts      Account[]
-  sessions      Session[]
+  id              String    @id @default(cuid())
+  name            String?
+  email           String    @unique
+  emailVerified   DateTime?
+  image           String?
+  accounts        Account[]
+  sessions        Session[]
+
+  username        String?
+  experienceLevel String?
+  favoriteSystems String[]
+  gameStyle       String[]
+  safety          String[]
+  goals           String[]
+  logistics       String[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

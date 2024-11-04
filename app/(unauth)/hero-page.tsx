@@ -8,7 +8,7 @@ const lexend = Lexend_Mega({ subsets: ["latin"] })
 
 const HeroPage = () => {
   return (
-    <div className="text-semibold inset-x-0 bottom-0 z-50 flex h-dvh w-full flex-col justify-items-stretch space-y-4 bg-background p-4">
+    <div className="text-semibold justify-items inset-x-0 bottom-0 z-50 flex h-dvh flex-col items-center space-y-4 bg-background p-4">
       <div className="flex items-center justify-center pb-8">
         <p className={cn("text-3xl font-bold", lexend.className)}>BONFIRE</p>
       </div>
@@ -49,7 +49,7 @@ const HeroPage = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col rounded-lg border-2 border-border bg-white p-4 shadow-light">
+      <div className="flex flex-col rounded-lg border-2 border-border bg-white p-4 shadow-light md:w-1/2">
         <h1
           className={cn(
             "mb-4 text-3xl font-extrabold tracking-tight",
@@ -63,7 +63,7 @@ const HeroPage = () => {
           experiences.
         </p>
       </div>
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center md:w-1/2">
         <Button size="lg" className="w-full font-semibold" asChild>
           <Link href="/signup">Explore Now!</Link>
         </Button>
