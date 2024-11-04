@@ -11,6 +11,7 @@ import D20Icon from "./icons/d20Icon"
 import { useState } from "react"
 import { Button } from "./ui/button"
 import { usePathname } from "next/navigation"
+import { signOut } from "next-auth/react"
 
 const TabBar = () => {
   const pathname = usePathname().replace("/", "")
@@ -18,6 +19,11 @@ const TabBar = () => {
 
   const handleMenu = (value: string) => {
     setCurrent(value)
+  }
+
+  const handleLogOut = () => {
+    handleMenu("account")
+    signOut()
   }
 
   return (
@@ -67,7 +73,7 @@ const TabBar = () => {
         <Button
           size="icon"
           variant={current === "account" ? "pressed" : "neutral"}
-          onClick={() => handleMenu("account")}
+          onClick={() => handleLogOut()}
           asChild
         >
           <Link href="/">

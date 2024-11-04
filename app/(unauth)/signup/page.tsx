@@ -10,15 +10,11 @@ import SessionZeroForm from "./_components/session-zero-form"
 import Celebration from "./_components/celebration"
 
 const SignUp = () => {
-  const [loading, setLoading] = useState<boolean>(false)
   const [formSent, setFormSet] = useState<boolean>(false)
   const { status } = useSession()
 
   const handleLoginGoogle = () => {
-    setLoading(true)
-    signIn("google").then(() => {
-      setLoading(false)
-    })
+    signIn("google")
   }
 
   if (formSent) {
@@ -36,9 +32,17 @@ const SignUp = () => {
           "flex h-full w-full flex-col items-center justify-center gap-6",
         )}
       >
-        <Button className="" onClick={handleLoginGoogle} disabled={loading}>
+        <Button
+          className=""
+          onClick={handleLoginGoogle}
+          disabled={status === "loading"}
+        >
           <div className="flex items-center gap-1 font-semibold">
-            {loading ? <D20Icon className="animate-spin" /> : <GoogleIcon />}
+            {status === "loading" ? (
+              <D20Icon className="animate-spin" />
+            ) : (
+              <GoogleIcon />
+            )}
             <span>Sign in with Google</span>
           </div>
         </Button>

@@ -1,20 +1,23 @@
 "use client"
 
-import { signIn } from "next-auth/react"
+import { signIn, useSession } from "next-auth/react"
 import { Button } from "../../_components/ui/button"
 import GoogleIcon from "../../_components/icons/google-icon"
 import { cn } from "../../_lib/utils"
-import { useState } from "react"
 import D20Icon from "../../_components/icons/d20Icon"
+import { useEffect, useState } from "react"
 
-const SignUp = () => {
-  const [loading, setLoading] = useState<boolean>(false)
+const Login = () => {
+  const { status } = useSession()
+  const [callbackUrl, setCallbackUrl] = useState("/")
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search)
+    setCallbackUrl(urlParams.get("callbackUrl") || "/")
+  }, [])
 
   const handleLoginGoogle = () => {
-    setLoading(true)
-    signIn("google").then(() => {
-      setLoading(false)
-    })
+    signIn("google", { callbackUrl })
   }
 
   return (
@@ -24,9 +27,17 @@ const SignUp = () => {
           "flex h-full w-full flex-col items-center justify-center gap-6",
         )}
       >
-        <Button className="" onClick={handleLoginGoogle} disabled={loading}>
+        <Button
+          className=""
+          onClick={handleLoginGoogle}
+          disabled={status === "loading"}
+        >
           <div className="flex items-center gap-1 font-semibold">
-            {loading ? <D20Icon className="animate-spin" /> : <GoogleIcon />}
+            {status === "loading" ? (
+              <D20Icon className="animate-spin" />
+            ) : (
+              <GoogleIcon />
+            )}
             <span>Log in with Google</span>
           </div>
         </Button>
@@ -35,4 +46,4 @@ const SignUp = () => {
   )
 }
 
-export default SignUp
+export default Login
