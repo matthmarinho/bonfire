@@ -65,7 +65,7 @@ const HeroPage = () => {
       </div>
       <div className="flex items-center justify-center">
         <Button size="lg" className="w-full font-semibold">
-          <Link href="/sign-up">Explore Now!</Link>
+          <Link href="/signup">Explore Now!</Link>
         </Button>
       </div>
     </div>
