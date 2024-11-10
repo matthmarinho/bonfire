@@ -23,8 +23,6 @@ import { useEffect, useState } from "react"
 import dayjs from "dayjs"
 import "dayjs/locale/pt-br"
 import DMCard from "@/app/_components/dm-card"
-import { useRouter } from "next/navigation"
-import { useSession } from "next-auth/react"
 import { Button } from "@/app/_components/ui/button"
 import Link from "next/link"
 dayjs.locale("pt-br")
@@ -36,9 +34,6 @@ interface AdventureParamsProps {
 }
 
 const Adventure = ({ params }: AdventureParamsProps) => {
-  const router = useRouter()
-  const { status } = useSession()
-
   const [adventure, setAdventure] = useState<AdventureProps | null>(null)
   const [loading, setLoading] = useState(true)
 
@@ -61,13 +56,6 @@ const Adventure = ({ params }: AdventureParamsProps) => {
       )
     )
   }
-
-  useEffect(() => {
-    if (status === "unauthenticated") {
-      const callbackUrl = encodeURIComponent(window.location.href)
-      router.push(`/login?callbackUrl=${callbackUrl}`)
-    }
-  }, [status, router])
 
   useEffect(() => {
     const fetchData = async () => {
