@@ -2,7 +2,8 @@ import type { Metadata } from "next"
 import { Archivo } from "next/font/google"
 import "./globals.css"
 import { Toaster } from "@/app/_components/ui/toaster"
-import AuthProvider from "./_providers/auth"
+import { ClerkProvider } from "@clerk/nextjs"
+import { neobrutalism } from "@clerk/themes"
 
 const archivo = Archivo({ subsets: ["latin"] })
 
@@ -19,10 +20,14 @@ export default function RootLayout({
   return (
     <html lang="en" className="bonfire">
       <body className={archivo.className}>
-        <AuthProvider>
+        <ClerkProvider
+          appearance={{
+            baseTheme: neobrutalism,
+          }}
+        >
           {children}
           <Toaster />
-        </AuthProvider>
+        </ClerkProvider>
       </body>
     </html>
   )

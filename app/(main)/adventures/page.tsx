@@ -8,8 +8,6 @@ import "dayjs/locale/pt-br"
 import { useEffect, useState } from "react"
 import Image from "next/image"
 import { cn } from "../../_lib/utils"
-import { useRouter } from "next/navigation"
-import { useSession } from "next-auth/react"
 dayjs.locale("pt-br")
 
 interface AdventureCard {
@@ -140,22 +138,12 @@ const cards = [
 ]
 
 const Requests = () => {
-  const router = useRouter()
-  const { status } = useSession()
-
   const [adventures, setAdventures] = useState<AdventureCard[] | []>([])
   const [tab, setTab] = useState("adventures")
 
   const handleTabs = (event: string) => {
     setTab(event)
   }
-
-  useEffect(() => {
-    if (status === "unauthenticated") {
-      const callbackUrl = encodeURIComponent(window.location.href)
-      router.push(`/login?callbackUrl=${callbackUrl}`)
-    }
-  }, [status, router])
 
   useEffect(() => {
     if (tab === "adventures") {

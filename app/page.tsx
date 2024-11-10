@@ -1,28 +1,23 @@
-"use client"
-
-import HeroPage from "./(unauth)/hero-page"
-import { useEffect, useState } from "react"
-import SplashScreen from "./_components/splash-screen"
 import { redirect } from "next/navigation"
-import { useSession } from "next-auth/react"
+import { auth } from "@clerk/nextjs/server"
 
-export default function Home() {
-  const { status } = useSession()
-  const [loading, setLoading] = useState(true)
+const Home = async () => {
+  const { userId } = await auth()
 
-  useEffect(() => {
-    if (status === "authenticated") {
-      redirect("/grimoire")
-    }
-  }, [status])
-
-  const finishLoading = () => {
-    setLoading(false)
+  if (!userId) {
+    redirect("/hero-page")
   }
 
-  return (
-    <>
-      {loading ? <SplashScreen finishLoading={finishLoading} /> : <HeroPage />}
-    </>
-  )
+  redirect("/grimoire")
+
+  // return (
+  //   <div className="flex h-full items-center justify-center">
+  //     <UserButton showName />
+  //   </div>
+  //   // <>
+  //   //   {loading ? <SplashScreen finishLoading={finishLoading} /> : <HeroPage />}
+  //   // </>
+  // )
 }
+
+export default Home
