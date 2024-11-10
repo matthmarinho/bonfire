@@ -29,7 +29,7 @@ import {
   MultiSelectorList,
   MultiSelectorTrigger,
 } from "@/app/_components/ui/multi-select"
-import { updateUser } from "@/app/_actions/update-user"
+// import { updateUser } from "@/app/_actions/update-user"
 
 const sessionZeroMock = {
   basicInfo: {
@@ -127,9 +127,10 @@ const SessionZeroForm = ({ setFormSent }: SessionZeroFormProps) => {
     },
   })
 
+  // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      await updateUser(values)
+      // await updateUser(values)
     } catch (error) {
       console.error(error)
     }
