@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/_constants/heartIcon.jsx", "app/_contants/heartIcon.js", "app/api/auth/[...nextauth]"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/_constants/heartIcon.jsx", "app/_contants/heartIcon.js"],
   "exclude": ["node_modules"]
 }
