@@ -53,8 +53,8 @@ const Grimoire = () => {
 
   return (
     <>
-      <div className="h-[calc(100dvh-3rem)] w-full">
-        {loading || status === "loading" ? (
+      <div className="h-[calc(100dvh-3.5rem)] w-full">
+        {loading ? (
           <Loading />
         ) : (
           <AdventureCarousel

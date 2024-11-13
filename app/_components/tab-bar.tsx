@@ -1,28 +1,40 @@
 "use client"
 
 import Link from "next/link"
-import {
-  FlameKindlingIcon,
-  MessagesSquareIcon,
-  SearchIcon,
-  UserIcon,
-} from "lucide-react"
+import { BookOpenIcon, FlameKindlingIcon, UserIcon } from "lucide-react"
 import D20Icon from "./icons/d20Icon"
 import { useState } from "react"
 import { Button } from "./ui/button"
 import { usePathname } from "next/navigation"
+import { useUser } from "@clerk/nextjs"
+import { checkUserRole } from "@/utils/roles"
 
 const TabBar = () => {
   const pathname = usePathname().split("/").filter(Boolean)[0]
   const [current, setCurrent] = useState(pathname)
+  const { user } = useUser()
+  const role = checkUserRole(user)
 
   const handleMenu = (value: string) => {
     setCurrent(value)
   }
 
   return (
-    <div className="fixed bottom-0 flex h-20 w-full items-center justify-around bg-transparent">
+    <div className="fixed bottom-0 flex h-14 w-full justify-around bg-transparent">
       <div className="flex gap-4">
+        {role === "admin" && (
+          <Button
+            size="icon"
+            variant={current === "dm" ? "pressed" : "neutral"}
+            className="aspect-square"
+            onClick={() => handleMenu("dm")}
+            asChild
+          >
+            <Link href="/dm">
+              <BookOpenIcon />
+            </Link>
+          </Button>
+        )}
         <Button
           size="icon"
           variant={current === "adventures" ? "pressed" : "neutral"}
@@ -34,7 +46,7 @@ const TabBar = () => {
             <D20Icon />
           </Link>
         </Button>
-        <Button
+        {/* <Button
           size="icon"
           variant={current === "search" ? "pressed" : "neutral"}
           onClick={() => handleMenu("search")}
@@ -43,7 +55,7 @@ const TabBar = () => {
           <Link href="/">
             <SearchIcon />
           </Link>
-        </Button>
+        </Button> */}
         <Button
           size="icon"
           variant={current === "grimoire" ? "pressed" : "neutral"}
@@ -54,7 +66,7 @@ const TabBar = () => {
             <FlameKindlingIcon />
           </Link>
         </Button>
-        <Button
+        {/* <Button
           size="icon"
           variant={current === "messages" ? "pressed" : "neutral"}
           onClick={() => handleMenu("messages")}
@@ -63,7 +75,7 @@ const TabBar = () => {
           <Link href="/">
             <MessagesSquareIcon />
           </Link>
-        </Button>
+        </Button> */}
         <Button
           size="icon"
           variant={current === "profile" ? "pressed" : "neutral"}

@@ -17,7 +17,7 @@ const DMCard = ({ dungeonMaster, className }: DMProps) => {
   return (
     <Card
       className={cn(
-        "shadow-none hover:translate-x-reverseBoxShadowX hover:translate-y-reverseBoxShadowY hover:shadow-light",
+        "shadow-light hover:translate-x-reverseBoxShadowX hover:translate-y-reverseBoxShadowY hover:shadow-none",
         className,
       )}
     >

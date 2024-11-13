@@ -1,4 +1,3 @@
-import Header from "../_components/header"
 import TabBar from "../_components/tab-bar"
 
 export default function MainLayout({
@@ -8,8 +7,7 @@ export default function MainLayout({
 }>) {
   return (
     <>
-      <Header />
-      {children}
+      <div className="container h-[calc(100dvh-3.5rem)] w-full">{children}</div>
       <TabBar />
     </>
   )

@@ -18,6 +18,7 @@ const buttonVariants = cva(
           "bg-main border-2 border-border dark:border-darkBorder hover:translate-x-reverseBoxShadowX hover:translate-y-reverseBoxShadowY hover:shadow-light dark:hover:shadow-dark",
         pressed:
           "bg-main border-2 border-border dark:border-darkBorder bg-primary dark:shadow-dark translate-x-boxShadowX translate-y-boxShadowY",
+        ghost: "justify-end hover:bg-transparet hover:text-accent-foreground",
       },
       size: {
         default: "h-10 px-4 py-2",

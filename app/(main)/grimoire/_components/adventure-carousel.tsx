@@ -42,11 +42,11 @@ const AdventureCarousel = ({
   return (
     <>
       <Carousel setApi={setApi}>
-        <CarouselContent className="h-[calc(100dvh-3rem)] px-6">
+        <CarouselContent className="px-6 py-4">
           {grimoireData.map((card) => (
             <CarouselItem key={card.id}>
               <Card>
-                <CardContent className="relative flex h-[calc(100dvh-8rem)] w-full flex-col items-center justify-center rounded-lg">
+                <CardContent className="relative flex h-[calc(100dvh-6rem)] w-full flex-col items-center justify-center rounded-lg">
                   <Image
                     alt={card.title}
                     src={card.banner}

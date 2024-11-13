@@ -19,6 +19,11 @@ const nextConfig = {
         hostname: 'picsum.photos',
         port: '',
       },
+      {
+        protocol: 'https',
+        hostname: 'img.clerk.com',
+        port: '',
+      },
     ],
   },
 };
