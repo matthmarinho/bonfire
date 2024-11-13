@@ -66,7 +66,7 @@ const Adventure = ({ params }: AdventureParamsProps) => {
       {loading && <Loading />}
       {adventure && (
         <>
-          <Button size="icon" className="absolute z-50" asChild>
+          <Button size="icon" className="fixed z-50" asChild>
             <Link href="/adventures">
               <ArrowLeftIcon />
             </Link>

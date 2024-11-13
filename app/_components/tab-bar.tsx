@@ -24,26 +24,34 @@ const TabBar = () => {
       <div className="flex gap-4">
         {role === "admin" && (
           <Button
-            size="icon"
+            size={current === "dm" ? "default" : "icon"}
             variant={current === "dm" ? "pressed" : "neutral"}
             className="aspect-square"
             onClick={() => handleMenu("dm")}
             asChild
           >
             <Link href="/dm">
-              <BookOpenIcon />
+              {current === "dm" ? (
+                <span className="font-semibold">Dungeon Master</span>
+              ) : (
+                <BookOpenIcon />
+              )}
             </Link>
           </Button>
         )}
         <Button
-          size="icon"
+          size={current === "adventures" ? "default" : "icon"}
           variant={current === "adventures" ? "pressed" : "neutral"}
           className="aspect-square"
           onClick={() => handleMenu("adventures")}
           asChild
         >
           <Link href="/adventures">
-            <D20Icon />
+            {current === "adventures" ? (
+              <span className="font-semibold">Adventures</span>
+            ) : (
+              <D20Icon />
+            )}
           </Link>
         </Button>
         {/* <Button
@@ -57,13 +65,18 @@ const TabBar = () => {
           </Link>
         </Button> */}
         <Button
-          size="icon"
+          size={current === "grimoire" ? "default" : "icon"}
           variant={current === "grimoire" ? "pressed" : "neutral"}
+          className="aspect-square"
           onClick={() => handleMenu("grimoire")}
           asChild
         >
           <Link href="/grimoire">
-            <FlameKindlingIcon />
+            {current === "grimoire" ? (
+              <span className="font-semibold">Grimoire</span>
+            ) : (
+              <FlameKindlingIcon />
+            )}
           </Link>
         </Button>
         {/* <Button
@@ -77,13 +90,18 @@ const TabBar = () => {
           </Link>
         </Button> */}
         <Button
-          size="icon"
+          size={current === "profile" ? "default" : "icon"}
           variant={current === "profile" ? "pressed" : "neutral"}
+          className="aspect-square"
           onClick={() => handleMenu("profile")}
           asChild
         >
           <Link href="/profile">
-            <UserIcon />
+            {current === "profile" ? (
+              <span className="font-semibold">Profile</span>
+            ) : (
+              <UserIcon />
+            )}
           </Link>
         </Button>
       </div>
