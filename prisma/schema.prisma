@@ -8,16 +8,67 @@ datasource db {
 }
 
 model User {
-  id              String   @id @default(cuid())
-  userId          String
-  experienceLevel String?
-  favoriteSystems String[]
-  gameStyle       String[]
-  safety          String[]
-  goals           String[]
-  logistics       String[]
+  id            String         @id @default(cuid())
+  clerkUserId   String?        @unique
+  adventure     Adventure[]
+  Request       Request[]
+  DungeonMaster DungeonMaster?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
+model DungeonMaster {
+  id        String      @id @default(cuid())
+  user      User        @relation(fields: [userId], references: [id])
+  userId    String      @unique
+  adventure Adventure[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Adventure {
+  id              String        @id @default(cuid())
+  title           String
+  description     String
+  system          String
+  format          String
+  imageUrl        String?
+  sessions        Session[]
+  requests        Request[]
+  players         User[]
+  dungeonMaster   DungeonMaster @relation(fields: [dungeonMasterId], references: [id])
+  dungeonMasterId String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Session {
+  id          String    @id @default(cuid())
+  date        DateTime
+  duration    Int
+  adventure   Adventure @relation(fields: [adventureId], references: [id])
+  adventureId String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Request {
+  id          String        @id @default(cuid())
+  user        User          @relation(fields: [userId], references: [id])
+  userId      String
+  adventure   Adventure     @relation(fields: [adventureId], references: [id])
+  adventureId String
+  status      RequestStatus @default(PENDING)
+
+  createdAt DateTime @default(now())
+}
+
+enum RequestStatus {
+  PENDING
+  ACCEPTED
+  REJECTED
+}
