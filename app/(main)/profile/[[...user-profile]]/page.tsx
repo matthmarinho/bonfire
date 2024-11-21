@@ -3,7 +3,8 @@
 import createDungeonMaster from "@/app/_actions/create-dungeon-master"
 import LoadingAnim from "@/app/_components/loading-anim"
 import { Button } from "@/app/_components/ui/button"
-import { checkUserRole } from "@/utils/roles"
+import { checkUserRole } from "@/app/_utils/roles"
+
 import { useClerk, useUser } from "@clerk/nextjs"
 import { BookOpenIcon, LogOutIcon } from "lucide-react"
 import Image from "next/image"

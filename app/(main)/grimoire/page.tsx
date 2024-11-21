@@ -1,11 +1,10 @@
 "use client"
 
-import { useEffect, useState } from "react"
 import { CarouselApi } from "@/app/_components/ui/carousel"
 import dayjs from "dayjs"
 import "dayjs/locale/pt-br"
+import { useEffect, useState } from "react"
 import GetGrimoire, { GrimoireProps } from "../../_actions/get-grimoire"
-import AdventureDrawer from "./_components/adventure-drawer"
 import Loading from "../../_components/loading-anim"
 import AdventureCarousel from "./_components/adventure-carousel"
 
@@ -18,7 +17,9 @@ const Grimoire = () => {
   const [, setCount] = useState(0)
   const [grimoireData, setGrimoireData] = useState<GrimoireProps[] | []>([])
   const [loading, setLoading] = useState(true)
+  // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
   const [open, setOpen] = useState(false)
+  // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
   const [currentAdventure, setCurrentAdventure] =
     useState<GrimoireProps | null>(null)
 
@@ -64,13 +65,13 @@ const Grimoire = () => {
           />
         )}
       </div>
-      {currentAdventure && (
+      {/* {currentAdventure && (
         <AdventureDrawer
           open={open}
           setOpen={setOpen}
           adventure={currentAdventure}
         />
-      )}
+      )} */}
     </>
   )
 }
