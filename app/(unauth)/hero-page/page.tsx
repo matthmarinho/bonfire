@@ -1,5 +1,5 @@
 import { Lexend_Mega } from "next/font/google"
-import { cn } from "../../_lib/utils"
+import { cn } from "../../_utils/utils"
 import { Button } from "../../_components/ui/button"
 import { SignInButton } from "@clerk/nextjs"
 import SplashScreen from "./_components/splash-screen"

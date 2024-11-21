@@ -36,7 +36,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/app/_components/ui/dialog"
-import { useToast } from "@/hooks/use-toast"
+import { useToast } from "@/app/_hooks/use-toast"
 
 const FormSchema = z.object({
   players: z.string({

@@ -58,7 +58,7 @@ const AdventureDrawer = ({
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerContent className="border-none">
-        <div className="h-[calc(100vh-106px)] overflow-y-auto border-none pb-2">
+        <div className="no-scrollbar h-[calc(100dvh-6.5rem)] overflow-y-auto border-none pb-2">
           <div className="flex flex-col gap-8 px-4">
             <div className="relative h-60 rounded-lg border-2 border-border shadow-light">
               <Image

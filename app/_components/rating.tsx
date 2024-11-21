@@ -1,5 +1,5 @@
 import { StarHalfIcon, StarIcon } from "lucide-react"
-import { cn } from "../_lib/utils"
+import { cn } from "../_utils/utils"
 
 interface RatingProps {
   score: number

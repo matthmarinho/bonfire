@@ -24,7 +24,17 @@ const nextConfig = {
         hostname: 'img.clerk.com',
         port: '',
       },
+      {
+        protocol: 'https',
+        hostname: 'isimkihwarvgadsudnua.supabase.co',
+        port: '',
+      },
     ],
+  },
+  webpack: (config) => {
+    config.resolve.fallback = { fs: false };
+
+    return config;
   },
 };
 

@@ -1,14 +1,13 @@
 "use client"
 
-import { Card, CardContent } from "@/app/_components/ui/card"
+import SearchBar from "@/app/_components/search-bar"
 import { Badge } from "@/app/_components/ui/badge"
+import { Button } from "@/app/_components/ui/button"
+import { Card, CardContent } from "@/app/_components/ui/card"
 import dayjs from "dayjs"
 import "dayjs/locale/pt-br"
-import { useEffect, useState } from "react"
 import Image from "next/image"
-import { Button } from "@/app/_components/ui/button"
-import { Input } from "@/app/_components/ui/input"
-import { SearchIcon, XIcon } from "lucide-react"
+import { useEffect, useState } from "react"
 dayjs.locale("pt-br")
 
 interface AdventureCard {
@@ -184,26 +183,11 @@ const Adventures = () => {
       <div className="h-[calc(100dvh-3.5rem)] w-full">
         <div className="flex flex-col gap-2 p-4">
           <div className="flex flex-row gap-2">
-            <div className="relative w-full">
-              <Input
-                placeholder="Search..."
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
-              />
-              {value ? (
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="absolute right-3 top-1/2 -translate-y-1/2"
-                  onClick={handleClear}
-                >
-                  <XIcon className="h-4 w-4" />
-                  <span className="sr-only">Clear</span>
-                </Button>
-              ) : (
-                <SearchIcon className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
-              )}
-            </div>
+            <SearchBar
+              value={value}
+              setValue={setValue}
+              handleClear={handleClear}
+            />
           </div>
           <div className="no-scrollbar flex w-full gap-2 overflow-hidden overflow-x-auto p-1">
             <Button

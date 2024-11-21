@@ -1,13 +1,13 @@
 "use client"
 
-import Link from "next/link"
-import { BookOpenIcon, FlameKindlingIcon, UserIcon } from "lucide-react"
-import D20Icon from "./icons/d20Icon"
-import { useState } from "react"
-import { Button } from "./ui/button"
-import { usePathname } from "next/navigation"
 import { useUser } from "@clerk/nextjs"
-import { checkUserRole } from "@/utils/roles"
+import { BookOpenIcon, FlameKindlingIcon, UserIcon } from "lucide-react"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
+import { useState } from "react"
+import { checkUserRole } from "../_utils/roles"
+import D20Icon from "./icons/d20Icon"
+import { Button } from "./ui/button"
 
 const TabBar = () => {
   const pathname = usePathname().split("/").filter(Boolean)[0]
@@ -22,7 +22,7 @@ const TabBar = () => {
   return (
     <div className="fixed bottom-0 flex h-14 w-full justify-around bg-transparent">
       <div className="flex gap-4">
-        {role === "admin" && (
+        {role === "dungeon_master" && (
           <Button
             size={current === "dm" ? "default" : "icon"}
             variant={current === "dm" ? "pressed" : "neutral"}

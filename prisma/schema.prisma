@@ -30,7 +30,7 @@ model DungeonMaster {
 }
 
 model Adventure {
-  id              String        @id @default(cuid())
+  id              String          @id @default(cuid())
   title           String
   description     String
   system          String
@@ -39,8 +39,9 @@ model Adventure {
   sessions        Session[]
   requests        Request[]
   players         User[]
-  dungeonMaster   DungeonMaster @relation(fields: [dungeonMasterId], references: [id])
+  dungeonMaster   DungeonMaster   @relation(fields: [dungeonMasterId], references: [id])
   dungeonMasterId String
+  status          AdventureStatus @default(WAITING_FOR_PLAYERS)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -48,8 +49,10 @@ model Adventure {
 
 model Session {
   id          String    @id @default(cuid())
+  title       String
   date        DateTime
-  duration    Int
+  duration    String
+  location    String
   adventure   Adventure @relation(fields: [adventureId], references: [id])
   adventureId String
 
@@ -72,4 +75,10 @@ enum RequestStatus {
   PENDING
   ACCEPTED
   REJECTED
+}
+
+enum AdventureStatus {
+  WAITING_FOR_PLAYERS
+  ACTIVE
+  PAUSED
 }

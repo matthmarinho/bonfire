@@ -1,7 +1,7 @@
 import { Button } from "@/app/_components/ui/button"
 import Link from "next/link"
 import { Lexend_Mega } from "next/font/google"
-import { cn } from "@/app/_lib/utils"
+import { cn } from "@/app/_utils/utils"
 const lexend = Lexend_Mega({ subsets: ["latin"] })
 
 const Celebration = () => {

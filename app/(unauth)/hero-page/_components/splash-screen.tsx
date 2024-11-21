@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react"
 import { Lexend_Mega } from "next/font/google"
-import { cn } from "../../../_lib/utils"
+import { cn } from "../../../_utils/utils"
 import { VelocityScroll } from "@/app/_components/ui/scroll-based-velocity"
 
 const lexend = Lexend_Mega({ subsets: ["latin"] })

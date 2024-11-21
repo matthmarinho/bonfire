@@ -4,7 +4,7 @@ import Rating from "./rating"
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
 import { Card, CardContent, CardHeader } from "./ui/card"
 import { Badge } from "./ui/badge"
-import { cn } from "../_lib/utils"
+import { cn } from "../_utils/utils"
 // import { Button } from "./ui/button"
 // import { Instagram, Youtube, Twitter } from 'lucide-react'
 

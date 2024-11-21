@@ -1,5 +1,5 @@
 import { Lexend_Mega } from "next/font/google"
-import { cn } from "../_lib/utils"
+import { cn } from "../_utils/utils"
 
 const lexend = Lexend_Mega({ subsets: ["latin"] })
 
